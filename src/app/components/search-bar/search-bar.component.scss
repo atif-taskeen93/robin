@@ -1,0 +1,14 @@
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  border-radius: 26px;
+  input {
+    width: 316px;
+    height: 32px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    margin-left: 16px;
+    font-size: 1rem;
+  }
+}

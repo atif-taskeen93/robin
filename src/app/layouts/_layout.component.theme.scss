@@ -1,0 +1,46 @@
+@use "@angular/material" as mat;
+
+@mixin theme($theme) {
+  .sidenav {
+    background-color: mat.get-theme-color($theme, surface-bright);
+  }
+  .toolbar {
+    background-color: mat.get-theme-color($theme, surface-container-lowest);
+    border-bottom: 0.5px solid mat.get-theme-color($theme, inverse-on-surface);
+  }
+  .search-bar-container {
+    background-color: mat.get-theme-color($theme, surface-container-low);
+    input {
+      color: mat.get-theme-color($theme, on-surface-variant);
+    }
+  }
+  nav {
+    border-right: 0.5px solid mat.get-theme-color($theme, inverse-on-surface);
+    ul {
+      li {
+        a.active {
+          .icon-wrapper {
+            background-color: mat.get-theme-color(
+              $theme,
+              primary-container
+            ) !important;
+            border-radius: 24px;
+            transition: background-color 0.6s;
+          }
+        }
+      }
+    }
+  }
+  mat-drawer {
+    border-right: 0.5px solid mat.get-theme-color($theme, inverse-on-surface);
+  }
+  .child-menu {
+    &.active {
+      background-color: mat.get-theme-color(
+        $theme,
+        primary-container
+      ) !important;
+      transition: background-color 0.6s linear;
+    }
+  }
+}

@@ -1,0 +1,158 @@
+.toolbar {
+  padding: 12px 30px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 0px;
+  a {
+    display: flex;
+    width: 300px;
+  }
+  .right-panel {
+    display: flex;
+    width: calc(100% - 324px);
+    align-items: center;
+    justify-content: space-between;
+    .config-container {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      .user-info-wrapper {
+        .btn-wrapper {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          button {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            box-shadow: none;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.main {
+  display: flex;
+  position: relative;
+  top: 64px;
+  nav {
+    background-color: #ffffff;
+    width: 80px;
+    text-align: center;
+    height: calc(100vh - 64px);
+    overflow: auto;
+    position: fixed;
+    z-index: 2;
+    ul {
+      padding: 40px 0px 56px 0px;
+      li {
+        margin-bottom: 30px;
+        a {
+          display: inline-block;
+          vertical-align: middle;
+          cursor: pointer;
+          border-radius: 24px;
+          .icon-wrapper {
+            border-radius: 24px;
+            width: 56px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+          }
+          &:hover {
+            .icon-wrapper {
+              background: linear-gradient(
+                0deg,
+                rgb(77 66 86 / 8%),
+                rgb(77 66 86 / 8%)
+              );
+              transition: all 0.8s;
+            }
+          }
+        }
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+  > div {
+    width: 100%;
+    .sidenav-container {
+      margin-left: 80px;
+      height: calc(100vh - 64px);
+      mat-drawer {
+        background-color: #ffffff;
+        border-radius: 0px 8px 8px 0px;
+        width: 248px;
+        padding: 18px 10px;
+        box-shadow: none;
+        transition: box-shadow 0.8s;
+        &:hover {
+          box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
+        }
+        ul {
+          > li {
+            min-height: 48px;
+            margin-top: 4px;
+            line-height: 48px;
+            cursor: pointer;
+            border-radius: 24px;
+            a {
+              color: #1d1b20;
+              padding: 0px 24px;
+              display: block;
+              line-height: 48px;
+              border-radius: 24px;
+              &:hover {
+                background: linear-gradient(
+                  0deg,
+                  rgb(77 66 86 / 8%),
+                  rgb(77 66 86 / 8%)
+                );
+                transition: all 0.8s;
+              }
+            }
+          }
+        }
+        mat-expansion-panel {
+          box-shadow: none;
+          background: transparent;
+          border-radius: 24px;
+          mat-expansion-panel-header {
+            height: 48px;
+            &.active {
+              background: linear-gradient(
+                0deg,
+                rgb(77 66 86 / 8%),
+                rgb(77 66 86 / 8%)
+              );
+              transition: background-color 0.6s linear;
+            }
+          }
+          ::ng-deep .mat-expansion-panel-body {
+            padding: 0px;
+            ul {
+              margin-left: 18px !important;
+            }
+          }
+        }
+      }
+      mat-drawer-content {
+        > div {
+          margin: 12px;
+          height: auto;
+        }
+      }
+    }
+  }
+}

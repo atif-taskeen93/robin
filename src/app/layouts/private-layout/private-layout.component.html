@@ -1,0 +1,113 @@
+<mat-toolbar class="toolbar">
+  <a [routerLink]="['/']">
+    <img src="/images/logo.png" alt="logo" loading="lazy" />
+  </a>
+  <div class="right-panel">
+    <app-search-bar></app-search-bar>
+    <div class="config-container">
+      <mat-icon
+        mat-icon-button
+        matBadge="8"
+        matBadgeColor="primary"
+        matBadgeSize="large"
+        >notifications_none</mat-icon
+      >
+
+      <div class="user-info-wrapper">
+        <div class="btn-wrapper" [matMenuTriggerFor]="menu">
+          <button mat-fab>AT</button>
+          <mat-icon>arrow_drop_down_icon</mat-icon>
+        </div>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voice mail</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
+<div class="main">
+  <nav>
+    <ul>
+      <li *ngFor="let option of menuItems">
+        <a
+          (mouseenter)="
+            (option.submenu ?? []).length > 0
+              ? onMouseEnter(option.name)
+              : onMouseLeave()
+          "
+          (click)="onClickMenu(option.name)"
+          [ngClass]="currentPath[0] === option.name ? 'active' : ''"
+          [routerLink]="[option.path]"
+        >
+          <div class="icon-wrapper">
+            <img src="{{ option.icon }}" alt="logo" loading="lazy" />
+          </div>
+          <p class="mat-title-small">{{ option.title }}</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div>
+    <mat-drawer-container class="sidenav-container">
+      <mat-drawer
+        #drawer
+        mode="side"
+        [opened]="isShowDrawer || isSubmenuExist"
+        fixedInViewport
+        (mouseleave)="onMouseLeave()"
+        (openedChange)="togglePanel($event)"
+      >
+        <ul>
+          <li *ngFor="let menu of subMenuItems">
+            <mat-accordion *ngIf="(menu.children ?? []).length > 0">
+              <mat-expansion-panel
+                [expanded]="menu.name === currentPath[1] ? true : false"
+              >
+                <mat-expansion-panel-header
+                  [ngClass]="menu.name === currentPath[1] ? 'active' : ''"
+                >
+                  <mat-panel-title class="mat-title-small">{{
+                    menu.title
+                  }}</mat-panel-title>
+                </mat-expansion-panel-header>
+                <ul *ngIf="panelOpenState || menu.name === currentPath[1]">
+                  <li *ngFor="let child of menu.children">
+                    <a
+                      class="mat-title-small child-menu"
+                      [ngClass]="child.name === currentPath[2] ? 'active' : ''"
+                      [routerLink]="[child.path]"
+                      >{{ child.title }}</a
+                    >
+                  </li>
+                </ul>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <a
+              class="mat-title-small child-menu"
+              *ngIf="(menu.children ?? []).length === 0"
+              [routerLink]="[menu.path]"
+              [ngClass]="menu.name === currentPath[1] ? 'active' : ''"
+              >{{ menu.title }}</a
+            >
+          </li>
+        </ul>
+      </mat-drawer>
+      <mat-drawer-content>
+        <div>
+          <router-outlet></router-outlet>
+        </div>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

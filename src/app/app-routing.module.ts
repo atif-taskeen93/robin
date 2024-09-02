@@ -23,7 +23,7 @@ const routes: Routes = [
   },
   // public route
   {
-    path: 'public',
+    path: '',
     component: PublicLayoutComponent,
     children: [
       {

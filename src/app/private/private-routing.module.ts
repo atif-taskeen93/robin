@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BasicInformationComponent } from './basic-information/basic-information.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { PatientIdentityComponent } from '../public/patient-identity/patient-identity.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,19 +13,22 @@ const routes: Routes = [
         path: 'patients/patients-summary/basic-information',
         pathMatch: 'full',
         component: BasicInformationComponent,
-        title: 'UHP | Basic Information'
+        title: 'UHP | Basic Information',
+        canActivate: [AuthGuard],
       },
       {
         path: 'calendar',
         pathMatch: 'full',
         component: CalendarComponent,
-        title: 'UHP | Calendar'
+        title: 'UHP | Calendar',
+        canActivate: [AuthGuard],
       },
       {
         path: 'patients/patient-information',
         pathMatch: 'full',
         component: PatientIdentityComponent,
-        title: 'UHP | Calendar'
+        title: 'UHP | Calendar',
+        canActivate: [AuthGuard],
       },
     ],
   }

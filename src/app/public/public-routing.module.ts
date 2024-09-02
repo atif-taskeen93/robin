@@ -7,7 +7,7 @@ const routes: Routes = [
     path:'',
     children: [
       {
-        path: 'patient-identity',
+        path: 'public/patient-identity',
         pathMatch: 'full',
         component: PatientIdentityComponent,
         title: 'UHP | Patient Identity'

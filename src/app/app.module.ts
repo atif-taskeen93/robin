@@ -38,7 +38,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     MatExpansionModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

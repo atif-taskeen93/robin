@@ -28,11 +28,6 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'public/patient-identity',
-        pathMatch: 'full'
-      },
-      {
-        path: '',
         loadChildren: () => import('./public/public.module').then(m => m.PublicModule)
       }
     ]

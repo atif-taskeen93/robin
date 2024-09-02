@@ -26,7 +26,7 @@ const routes: Routes = [
         component: PatientIdentityComponent,
         title: 'UHP | Calendar'
       },
-    ]
+    ],
   }
 ];
 

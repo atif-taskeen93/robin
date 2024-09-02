@@ -19,7 +19,7 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('./private/private.module').then(m => m.PrivateModule)
       }
-    ]
+    ],
   },
   // public route
   {

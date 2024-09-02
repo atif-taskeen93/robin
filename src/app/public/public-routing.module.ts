@@ -5,10 +5,10 @@ import { PatientIdentityComponent } from './patient-identity/patient-identity.co
 const routes: Routes = [
   {
     path:'',
-    component: PatientIdentityComponent,
     children: [
       {
         path: 'patient-identity',
+        pathMatch: 'full',
         component: PatientIdentityComponent,
         title: 'UHP | Patient Identity'
       },

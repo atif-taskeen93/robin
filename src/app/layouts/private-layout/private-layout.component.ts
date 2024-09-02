@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 
 interface MenuChild {
   name: string;
@@ -162,8 +162,7 @@ export class PrivateLayoutComponent {
   }
   ngOnInit() {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.currentPath = event.urlAfterRedirects.slice(1)?.split('/');
+        this.currentPath = this.router.url.slice(1)?.split('/');
         if (this.currentPath.length > 1) {
           this.isShowDrawer = true;
           this.isSubmenuExist = true;
@@ -171,7 +170,6 @@ export class PrivateLayoutComponent {
             this.menuItems.find((item) => item.name === this.currentPath[0])
               ?.submenu ?? [];
         }
-      }
     });
   }
   togglePanel(panel: any) {

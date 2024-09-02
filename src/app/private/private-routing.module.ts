@@ -7,10 +7,10 @@ import { PatientIdentityComponent } from '../public/patient-identity/patient-ide
 const routes: Routes = [
   {
     path:'',
-    component: BasicInformationComponent,
     children: [
       {
         path: 'patients/patients-summary/basic-information',
+        pathMatch: 'full',
         component: BasicInformationComponent,
         title: 'UHP | Basic Information'
       },

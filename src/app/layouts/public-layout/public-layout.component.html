@@ -1,3 +1,30 @@
-<router-outlet>
-    <h1>hvgh</h1>
-</router-outlet>
+<div class="main-layout">
+  <nav>
+    <a [routerLink]="['/']">
+      <img src="/images/logo.png" alt="logo" loading="lazy" />
+    </a>
+    <ul>
+      <li>
+        <a class="mat-title-small">Basic Information</a>
+      </li>
+      <li>
+        <a class="mat-title-small">Insurance Information</a>
+      </li>
+      <li>
+        <a class="mat-title-small">Medical History</a>
+      </li>
+      <li>
+        <a class="mat-title-small">Sexual Health</a>
+      </li>
+    </ul>
+    <a class="mat-label-large back-btn">
+      <mat-icon>arrow_back</mat-icon>Table of contents
+    </a>
+  </nav>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+    <div>
+    
+    </div>
+  </div>
+</div>

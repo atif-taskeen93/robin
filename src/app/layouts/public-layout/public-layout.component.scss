@@ -1,0 +1,56 @@
+.main-layout {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  nav {
+    width: 256px;
+    background: #ffffff;
+    height: calc(100vh - 48px);
+    border-radius: 8px;
+    padding: 16px;
+    img {
+      margin-bottom: 16px;
+    }
+    ul {
+      height: calc(100% - 106px);
+      li {
+        a {
+          padding: 16px;
+          display: block;
+        }
+      }
+    }
+  }
+  .back-btn {
+    padding: 16px 0px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    mat-icon {
+      font-size: 16px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+  ::ng-deep .main-content {
+    width: calc(100% - 296px);
+    border-radius: 8px;
+    overflow: hidden;
+    .content-layout {
+      background: white;
+      height: calc(100% - 136px);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      .header {
+        border-bottom: 1px solid #e7e0ec;
+        padding-bottom: 16px;
+      }
+      .sub-title {
+        border-bottom: 1px solid #e7e0ec;
+        padding-bottom: 16px;
+      }
+    }
+  }
+}

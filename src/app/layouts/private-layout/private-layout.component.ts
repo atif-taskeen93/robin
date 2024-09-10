@@ -155,6 +155,7 @@ export class PrivateLayoutComponent {
     if (checkSubMenuExist) {
       this.isSubmenuExist = true;
     } else {
+      this.isShowDrawer = false;
       this.subMenuItems = [];
       this.isSubmenuExist = false;
       this.panelOpenState = false;
@@ -169,6 +170,11 @@ export class PrivateLayoutComponent {
           this.subMenuItems =
             this.menuItems.find((item) => item.name === this.currentPath[0])
               ?.submenu ?? [];
+        } else {
+          this.isShowDrawer = false;
+          this.subMenuItems = [];
+          this.isSubmenuExist = false;
+          this.panelOpenState = false;
         }
     });
   }

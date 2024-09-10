@@ -93,14 +93,14 @@
       mat-drawer {
         background-color: #ffffff;
         border-radius: 0px 8px 8px 0px;
-        width: 248px;
-        padding: 18px 10px;
+        width: 260px;
         box-shadow: none;
         transition: box-shadow 0.8s;
         &:hover {
           box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
         }
         ul {
+          padding: 18px 10px;
           > li {
             min-height: 48px;
             margin-top: 4px;
@@ -142,6 +142,7 @@
           ::ng-deep .mat-expansion-panel-body {
             padding: 0px;
             ul {
+              padding: 0px;
               margin-left: 18px !important;
             }
           }

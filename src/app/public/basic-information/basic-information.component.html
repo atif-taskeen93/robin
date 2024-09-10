@@ -1,0 +1,57 @@
+<div class="content-layout">
+  <div class="header">
+    <h3 class="mat-headline-medium">Basic Information</h3>
+  </div>
+  <h3 class="mat-title-large">Basic Information</h3>
+  <h3 class="mat-title-medium sub-title">Personal Information</h3>
+
+  <mat-grid-list cols="3" rowHeight="60px" gutterSize="24px">
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>First Name *</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name *</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Date Of Birth *</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <h3 class="mat-title-medium sub-title">Location</h3>
+  <mat-grid-list cols="3" rowHeight="60px" gutterSize="24px">
+    <mat-grid-tile>
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Address 1 *</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>Address 2</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="fill">
+        <mat-label>City *</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+<app-time-counter></app-time-counter>

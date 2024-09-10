@@ -16,4 +16,10 @@
       font-weight: 700;
     }
   }
+  .action-section {
+    > div {
+      display: flex;
+      gap: 16px;
+    }
+  }
 }

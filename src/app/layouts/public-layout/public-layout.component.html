@@ -1,24 +1,29 @@
 <div class="main-layout">
-  <nav>
-    <a [routerLink]="['/']">
-      <img src="/images/logo.png" alt="logo" loading="lazy" />
-    </a>
-    <ul>
-      <li *ngFor="let option of routes">
-        <a
-          class="mat-title-small nav-menu"
-          [routerLink]="[option.path]"
-          [ngClass]="currentPath[1] === option.name ? 'active' : ''"
-          >{{ option.title }}</a
-        >
-      </li>
-    </ul>
-    <a class="mat-label-large back-btn">
-      <mat-icon>arrow_back</mat-icon>Table of contents
-    </a>
-  </nav>
-  <div class="main-content">
-    <router-outlet></router-outlet>
-    <div></div>
-  </div>
+  <mat-drawer-container class="sidenav-container">
+    <mat-drawer #drawer mode="side" [opened]="true" fixedInViewport>
+      <nav>
+        <a [routerLink]="['/']">
+          <img src="/images/logo.png" alt="logo" loading="lazy" />
+        </a>
+        <ul>
+          <li *ngFor="let option of routes">
+            <a
+              class="mat-title-small nav-menu"
+              [routerLink]="[option.path]"
+              [ngClass]="currentPath[1] === option.name ? 'active' : ''"
+              >{{ option.title }}</a
+            >
+          </li>
+        </ul>
+        <a class="mat-label-large back-btn">
+          <mat-icon>arrow_back</mat-icon>Table of contents
+        </a>
+      </nav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

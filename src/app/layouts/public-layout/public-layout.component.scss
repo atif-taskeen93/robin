@@ -1,31 +1,37 @@
 .main-layout {
   padding: 8px;
-  display: flex;
-  justify-content: space-between;
-  nav {
-    width: 256px;
-    background: #ffffff;
-    height: calc(100vh - 48px);
-    border-radius: 8px;
-    padding: 16px;
-    img {
-      margin-bottom: 16px;
-    }
-    ul {
-      height: calc(100% - 106px);
-      li {
-        margin-top: 4px;
-        .nav-menu {
-          padding: 16px;
-          display: block;
-          border-radius: 100px;
-          transition: background-color 0.6s linear;
-          &:hover {
-            background: linear-gradient(
-              0deg,
-              rgb(77 66 86 / 8%),
-              rgb(77 66 86 / 8%)
-            );
+  .sidenav-container {
+    height: calc(100vh - 16px);
+    background-color: transparent;
+    mat-drawer {
+      background-color: white;
+      width: 256px;
+      border-radius: 8px;
+      nav {
+        background: white;
+        height: calc(100vh - 48px);
+        border-radius: 8px;
+        padding: 16px;
+        img {
+          margin-bottom: 16px;
+        }
+        ul {
+          min-height: calc(100% - 106px);
+          li {
+            margin-top: 4px;
+            .nav-menu {
+              padding: 16px;
+              display: block;
+              border-radius: 100px;
+              transition: background-color 0.6s linear;
+              &:hover {
+                background: linear-gradient(
+                  0deg,
+                  rgb(77 66 86 / 8%),
+                  rgb(77 66 86 / 8%)
+                );
+              }
+            }
           }
         }
       }
@@ -43,12 +49,12 @@
     }
   }
   ::ng-deep .main-content {
-    width: calc(100% - 296px);
     border-radius: 8px;
     overflow: hidden;
+    margin-left: 6px;
     .content-layout {
       background: white;
-      height: calc(100% - 136px);
+      min-height: calc(100vh - 152px);
       padding: 16px;
       display: flex;
       flex-direction: column;

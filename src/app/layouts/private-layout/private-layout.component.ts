@@ -26,13 +26,13 @@ interface MenuItem {
 @Component({
   selector: 'app-private-layout',
   templateUrl: './private-layout.component.html',
-  styleUrl: './private-layout.component.scss'
+  styleUrl: './private-layout.component.scss',
 })
 export class PrivateLayoutComponent {
   subMenuItems: MenuSubItem[] = [];
   isShowDrawer: boolean = false;
   isSubmenuExist: boolean = false;
-  currentPath: any = '';
+  currentPath: string[] = [];
   panelOpenState: boolean = false;
 
   constructor(private router: Router) {}
@@ -162,20 +162,20 @@ export class PrivateLayoutComponent {
     }
   }
   ngOnInit() {
-    this.router.events.subscribe((event) => {
-        this.currentPath = this.router.url.slice(1)?.split('/');
-        if (this.currentPath.length > 1) {
-          this.isShowDrawer = true;
-          this.isSubmenuExist = true;
-          this.subMenuItems =
-            this.menuItems.find((item) => item.name === this.currentPath[0])
-              ?.submenu ?? [];
-        } else {
-          this.isShowDrawer = false;
-          this.subMenuItems = [];
-          this.isSubmenuExist = false;
-          this.panelOpenState = false;
-        }
+    this.router.events.subscribe(() => {
+      this.currentPath = this.router.url.slice(1)?.split('/');
+      if (this.currentPath.length > 1) {
+        this.isShowDrawer = true;
+        this.isSubmenuExist = true;
+        this.subMenuItems =
+          this.menuItems.find((item) => item.name === this.currentPath[0])
+            ?.submenu ?? [];
+      } else {
+        this.isShowDrawer = false;
+        this.subMenuItems = [];
+        this.isSubmenuExist = false;
+        this.panelOpenState = false;
+      }
     });
   }
   togglePanel(panel: any) {

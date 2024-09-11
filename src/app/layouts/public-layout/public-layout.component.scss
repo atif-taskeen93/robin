@@ -14,9 +14,19 @@
     ul {
       height: calc(100% - 106px);
       li {
-        a {
+        margin-top: 4px;
+        .nav-menu {
           padding: 16px;
           display: block;
+          border-radius: 100px;
+          transition: background-color 0.6s linear;
+          &:hover {
+            background: linear-gradient(
+              0deg,
+              rgb(77 66 86 / 8%),
+              rgb(77 66 86 / 8%)
+            );
+          }
         }
       }
     }

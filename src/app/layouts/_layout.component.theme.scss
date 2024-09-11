@@ -49,4 +49,12 @@
   .icon-color-outline {
     color: mat.get-theme-color($theme, outline);
   }
+  .nav-menu {
+    &.active {
+      background-color: mat.get-theme-color(
+        $theme,
+        primary-container
+      ) !important;
+    }
+  }
 }

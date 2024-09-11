@@ -4,17 +4,13 @@
       <img src="/images/logo.png" alt="logo" loading="lazy" />
     </a>
     <ul>
-      <li>
-        <a class="mat-title-small">Basic Information</a>
-      </li>
-      <li>
-        <a class="mat-title-small">Insurance Information</a>
-      </li>
-      <li>
-        <a class="mat-title-small">Medical History</a>
-      </li>
-      <li>
-        <a class="mat-title-small">Sexual Health</a>
+      <li *ngFor="let option of routes">
+        <a
+          class="mat-title-small nav-menu"
+          [routerLink]="[option.path]"
+          [ngClass]="currentPath[1] === option.name ? 'active' : ''"
+          >{{ option.title }}</a
+        >
       </li>
     </ul>
     <a class="mat-label-large back-btn">
@@ -23,8 +19,6 @@
   </nav>
   <div class="main-content">
     <router-outlet></router-outlet>
-    <div>
-    
-    </div>
+    <div></div>
   </div>
 </div>

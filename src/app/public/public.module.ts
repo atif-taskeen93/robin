@@ -16,6 +16,7 @@ import { TimeCounterComponent } from '../components/time-counter/time-counter.co
 import { InsuranceInformationComponent } from './insurance-information/insurance-information.component';
 import { MedicalHistoryComponent } from './medical-history/medical-history.component';
 import { SexualHealthComponent } from './sexual-health/sexual-health.component';
+import { PatientFormsComponent } from './patient-forms/patient-forms.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SexualHealthComponent } from './sexual-health/sexual-health.component';
     InsuranceInformationComponent,
     MedicalHistoryComponent,
     SexualHealthComponent,
+    PatientFormsComponent,
   ],
   imports: [
     CommonModule,

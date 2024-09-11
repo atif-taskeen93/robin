@@ -1,0 +1,33 @@
+.box-wrapper {
+  background-color: white;
+  width: 528px;
+  padding: 32px 24px;
+  border-radius: 16px;
+  img {
+    margin-bottom: 32px;
+  }
+  > p {
+    margin-top: 6px !important;
+  }
+  .form-list-wrapper {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      li {
+        border-radius: 8px;
+        border: 2px solid;
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 8px 16px;
+        }
+      }
+    }
+  }
+}

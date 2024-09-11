@@ -20,3 +20,5 @@ export const PUBLIC_ROUTES = [
     path: '/public/sexual-health',
   },
 ];
+
+export const BLANK_PUBLIC_ROUTE = ['public/patient-identity', 'public/patient-forms']

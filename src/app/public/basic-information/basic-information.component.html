@@ -1,9 +1,9 @@
 <div class="content-layout">
-  <app-public-header></app-public-header>
+  <app-public-header heading="Patient Registration"></app-public-header>
   <h3 class="mat-title-large">Basic Information</h3>
   <h3 class="mat-title-medium sub-title">Personal Information</h3>
 
-  <mat-grid-list cols="3" rowHeight="60px" gutterSize="24px">
+  <mat-grid-list [cols]="col" rowHeight="60px" gutterSize="24px">
     <mat-grid-tile>
       <mat-form-field appearance="fill" style="width: 100%">
         <mat-label>First Name *</mat-label>
@@ -30,7 +30,7 @@
     </mat-grid-tile>
   </mat-grid-list>
   <h3 class="mat-title-medium sub-title">Location</h3>
-  <mat-grid-list cols="3" rowHeight="60px" gutterSize="24px">
+  <mat-grid-list [cols]="col" rowHeight="60px" gutterSize="24px">
     <mat-grid-tile>
       <mat-form-field appearance="fill" style="width: 100%">
         <mat-label>Address 1 *</mat-label>

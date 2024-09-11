@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ScreenSizeService } from '../../services/screen-size.service';
-import { HandlePublicNavigationService } from '../../services/handle-public-navigation.service';
+import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
+import { HandlePublicNavigationService } from '../../services/handle-public-navigation/handle-public-navigation.service';
 import {
   PUBLIC_ROUTES,
   BLANK_PUBLIC_ROUTE,

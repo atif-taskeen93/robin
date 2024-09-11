@@ -2,8 +2,9 @@
   <button
     mat-icon-button
     (click)="toggleMenu()"
+    *ngIf="isLargeScreen"
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <h3 class="mat-headline-medium">Patient Registration</h3>
+  <h3 class="mat-headline-medium">{{heading}}</h3>
 </div>

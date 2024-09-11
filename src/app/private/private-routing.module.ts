@@ -4,6 +4,7 @@ import { BasicInformationComponent } from './basic-information/basic-information
 import { CalendarComponent } from './calendar/calendar.component';
 import { PatientIdentityComponent } from '../public/patient-identity/patient-identity.component';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { PatientInformationComponent } from './patient-information/patient-information.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
       {
         path: 'patients/patient-information',
         pathMatch: 'full',
-        component: PatientIdentityComponent,
+        component: PatientInformationComponent,
         title: 'UHP | Calendar',
         canActivate: [AuthGuard],
       },

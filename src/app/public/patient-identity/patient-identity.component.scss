@@ -16,3 +16,9 @@
     gap: 14px;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .box-wrapper {
+    width: calc(100% - 48px);
+  }
+}

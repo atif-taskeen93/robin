@@ -17,6 +17,7 @@ import { InsuranceInformationComponent } from './insurance-information/insurance
 import { MedicalHistoryComponent } from './medical-history/medical-history.component';
 import { SexualHealthComponent } from './sexual-health/sexual-health.component';
 import { PatientFormsComponent } from './patient-forms/patient-forms.component';
+import { PublicHeaderComponent } from '../components/public-header/public-header.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PatientFormsComponent } from './patient-forms/patient-forms.component';
     MedicalHistoryComponent,
     SexualHealthComponent,
     PatientFormsComponent,
+    PublicHeaderComponent
   ],
   imports: [
     CommonModule,

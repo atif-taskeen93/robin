@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { ScreenSizeService } from '../../services/screen-size.service';
 import { PUBLIC_ROUTES, BLANK_PUBLIC_ROUTE } from '../../core/constants/app.constants';
 
 interface MenuItem {
@@ -18,8 +19,10 @@ export class PublicLayoutComponent {
   routes: MenuItem[] = PUBLIC_ROUTES;
   currentPath: string[] = [];
   showNavigation: boolean = true;
+  isLargeScreen: boolean = false;
+  isOpen: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private screenSizeService: ScreenSizeService) {}
 
   ngOnInit() {
     this.router.events.subscribe(() => {
@@ -29,6 +32,9 @@ export class PublicLayoutComponent {
       } else {
         this.showNavigation = true;
       }
+    });
+    this.screenSizeService.isLargeScreen().subscribe(result => {
+      this.isLargeScreen = result.matches;
     });
   }
 }

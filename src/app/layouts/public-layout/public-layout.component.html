@@ -1,6 +1,11 @@
 <div class="main-layout" *ngIf="showNavigation">
   <mat-drawer-container class="sidenav-container">
-    <mat-drawer #drawer mode="side" [opened]="true" fixedInViewport>
+    <mat-drawer
+      #drawer
+      [mode]="isLargeScreen ? 'over' : 'side'"
+      [opened]="isLargeScreen ? isOpen : true"
+      fixedInViewport
+    >
       <nav>
         <a [routerLink]="['/']">
           <img src="/images/logo.png" alt="logo" loading="lazy" />
@@ -21,7 +26,7 @@
       </nav>
     </mat-drawer>
     <mat-drawer-content>
-      <div class="main-content">
+      <div class="main-content" [ngClass]="isLargeScreen ? 'ml-0' : ''">
         <router-outlet></router-outlet>
       </div>
     </mat-drawer-content>

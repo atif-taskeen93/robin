@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PRIVATE_ROUTES } from '../../core/constants/app.constants';
 
 interface MenuChild {
   name: string;
@@ -15,7 +16,6 @@ interface MenuSubItem {
 }
 
 interface MenuItem {
-  active: boolean;
   name: string;
   title: string;
   icon: string;
@@ -37,91 +37,7 @@ export class PrivateLayoutComponent {
 
   constructor(private router: Router) {}
 
-  menuItems: MenuItem[] = [
-    {
-      active: false,
-      name: 'patients',
-      title: 'Patients',
-      icon: '/images/persons.png',
-      path: '/patients/patients-summary/basic-information',
-      submenu: [
-        {
-          name: 'patients-summary',
-          title: 'Patients Summary',
-          children: [
-            {
-              name: 'basic-information',
-              title: 'Basic Information',
-              path: '/patients/patients-summary/basic-information',
-            },
-            {
-              name: 'treatment-provider',
-              title: 'Treatment and Providers',
-              path: '',
-            },
-            {
-              name: 'encounter-summary',
-              title: 'Encounter Summaries',
-              path: '',
-            },
-            {
-              name: 'testing-rubab-chart',
-              title: 'Testing Rubab Chart',
-              path: '',
-            },
-          ],
-        },
-        {
-          name: 'patient-information',
-          title: 'Patient Information',
-          path: '/patients/patient-information',
-          children: [],
-        },
-        {
-          name: 'appointments',
-          title: 'Appointments',
-          path: '',
-          children: [],
-        },
-        {
-          name: 'consent-form',
-          title: 'Consent Form',
-          path: '',
-          children: [],
-        },
-        {
-          name: 'encounter',
-          title: 'Encounter',
-          path: '',
-          children: [],
-        },
-      ],
-    },
-    {
-      active: false,
-      name: 'calendar',
-      title: 'Calendar',
-      icon: '/images/calendar.png',
-      path: '/calendar',
-      submenu: [],
-    },
-    {
-      active: false,
-      name: 'inbox',
-      title: 'Inbox',
-      icon: '/images/mail.png',
-      path: '',
-      submenu: [],
-    },
-    {
-      active: false,
-      name: 'settings',
-      title: 'Settings',
-      icon: '/images/settings.png',
-      path: '',
-      submenu: [],
-    },
-  ];
+  menuItems: MenuItem[] = PRIVATE_ROUTES
 
   onMouseEnter(selectedMenu: string) {
     const checkSubMenuExist =
@@ -142,12 +58,6 @@ export class PrivateLayoutComponent {
   }
 
   onClickMenu(menu: string) {
-    this.menuItems = this.menuItems.map((item) => {
-      return {
-        ...item,
-        active: item.name === menu ? true : false,
-      };
-    });
     const checkSubMenuExist =
       this.menuItems.find((item) => item.name === menu)?.submenu?.length === 0
         ? false
@@ -174,7 +84,6 @@ export class PrivateLayoutComponent {
         this.isShowDrawer = false;
         this.subMenuItems = [];
         this.isSubmenuExist = false;
-        this.panelOpenState = false;
       }
     });
   }

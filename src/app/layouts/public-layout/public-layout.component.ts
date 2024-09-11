@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ScreenSizeService } from '../../services/screen-size.service';
-import { PUBLIC_ROUTES, BLANK_PUBLIC_ROUTE } from '../../core/constants/app.constants';
+import { HandlePublicNavigationService } from '../../services/handle-public-navigation.service';
+import {
+  PUBLIC_ROUTES,
+  BLANK_PUBLIC_ROUTE,
+} from '../../core/constants/app.constants';
 
 interface MenuItem {
   name: string;
@@ -20,9 +24,17 @@ export class PublicLayoutComponent {
   currentPath: string[] = [];
   showNavigation: boolean = true;
   isLargeScreen: boolean = false;
-  isOpen: boolean = false;
+  isNavOpen: boolean = false;
 
-  constructor(private router: Router, private screenSizeService: ScreenSizeService) {}
+  constructor(
+    private router: Router,
+    private screenSizeService: ScreenSizeService,
+    private handlePublicNavigationService: HandlePublicNavigationService
+  ) {}
+
+  menuClosed() {
+    this.handlePublicNavigationService.toggle();
+  }
 
   ngOnInit() {
     this.router.events.subscribe(() => {
@@ -33,8 +45,11 @@ export class PublicLayoutComponent {
         this.showNavigation = true;
       }
     });
-    this.screenSizeService.isLargeScreen().subscribe(result => {
+    this.screenSizeService.isLargeScreen().subscribe((result) => {
       this.isLargeScreen = result.matches;
+    });
+    this.handlePublicNavigationService.getOpenState().subscribe((state) => {
+      this.isNavOpen = state;
     });
   }
 }

@@ -3,7 +3,8 @@
     <mat-drawer
       #drawer
       [mode]="isLargeScreen ? 'over' : 'side'"
-      [opened]="isLargeScreen ? isOpen : true"
+      [opened]="isLargeScreen ? isNavOpen : true"
+      (closed)="menuClosed()"
       fixedInViewport
     >
       <nav>

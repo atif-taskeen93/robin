@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-time-counter',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TimeCounterComponent {
 
+  @Input() buttonText: string = '';
+  @Input() buttonAction: () => void = () => {};
+  @Input() disabledSaveProgress: boolean = false;
 }

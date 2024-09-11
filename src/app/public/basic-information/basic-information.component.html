@@ -54,4 +54,8 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-<app-time-counter></app-time-counter>
+<app-time-counter
+  buttonText="Insurance Information"
+  [buttonAction]="onButtonClick"
+  [disabledSaveProgress]="false"
+></app-time-counter>

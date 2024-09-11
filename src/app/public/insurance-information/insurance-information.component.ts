@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-basic-information',
-  templateUrl: './basic-information.component.html',
-  styleUrl: './basic-information.component.scss',
+  selector: 'app-insurance-information',
+  templateUrl: './insurance-information.component.html',
+  styleUrl: './insurance-information.component.scss',
 })
-export class BasicInformationComponent {
+export class InsuranceInformationComponent {
   constructor(private router: Router) {}
 
   onButtonClick() {

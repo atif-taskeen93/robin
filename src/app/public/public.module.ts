@@ -13,12 +13,18 @@ import { PublicRoutingModule } from './public-routing.module';
 import { PatientIdentityComponent } from './patient-identity/patient-identity.component';
 import { BasicInformationComponent } from './basic-information/basic-information.component';
 import { TimeCounterComponent } from '../components/time-counter/time-counter.component';
+import { InsuranceInformationComponent } from './insurance-information/insurance-information.component';
+import { MedicalHistoryComponent } from './medical-history/medical-history.component';
+import { SexualHealthComponent } from './sexual-health/sexual-health.component';
 
 @NgModule({
   declarations: [
     PatientIdentityComponent,
     BasicInformationComponent,
     TimeCounterComponent,
+    InsuranceInformationComponent,
+    MedicalHistoryComponent,
+    SexualHealthComponent,
   ],
   imports: [
     CommonModule,

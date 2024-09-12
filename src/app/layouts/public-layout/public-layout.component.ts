@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
+import { Subscription } from 'rxjs';
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
 import { HandlePublicNavigationService } from '../../services/handle-public-navigation/handle-public-navigation.service';
 import { LoadingService } from '../../services/loading/loading.service';
@@ -32,6 +33,8 @@ export class PublicLayoutComponent {
   isNavOpen: boolean = false;
   dialogRef: MatDialogRef<ConfirmationDialogComponent> | undefined;
   loading: boolean = false;
+
+  private subscriptions: Subscription = new Subscription();
 
   constructor(
     private router: Router,
@@ -77,6 +80,7 @@ export class PublicLayoutComponent {
 
   ngOnInit() {
     this.router.events.subscribe(() => {
+      this.isNavOpen = false;
       this.currentPath = this.router.url.slice(1)?.split('/');
       if (BLANK_PUBLIC_ROUTE.includes(this.currentPath.join('/'))) {
         this.showNavigation = false;
@@ -93,5 +97,9 @@ export class PublicLayoutComponent {
     this.loadingService.getLoadingState().subscribe((state) => {
       this.loading = state;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

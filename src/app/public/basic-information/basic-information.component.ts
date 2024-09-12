@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Subscription } from 'rxjs';
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
 import { LoadingService } from '../../services/loading/loading.service';
 
@@ -12,6 +13,8 @@ import { LoadingService } from '../../services/loading/loading.service';
 export class BasicInformationComponent {
   col: number = 3;
   loading: boolean = false;
+
+  private subscriptions: Subscription = new Subscription();
 
   constructor(
     private router: Router,
@@ -38,5 +41,9 @@ export class BasicInformationComponent {
     this.loadingService.getLoadingState().subscribe((state) => {
       this.loading = state;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

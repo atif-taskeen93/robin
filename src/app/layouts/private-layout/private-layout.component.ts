@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PRIVATE_ROUTES } from '../../core/constants/app.constants';
 
+import { Subscription } from 'rxjs';
+
 interface MenuChild {
   name: string;
   title: string;
@@ -34,6 +36,8 @@ export class PrivateLayoutComponent {
   isSubmenuExist: boolean = false;
   currentPath: string[] = [];
   panelOpenState: boolean = false;
+
+  private subscriptions: Subscription = new Subscription();
 
   constructor(private router: Router) {}
 
@@ -71,6 +75,13 @@ export class PrivateLayoutComponent {
       this.panelOpenState = false;
     }
   }
+
+  togglePanel(panel: any) {
+    if (panel) {
+      this.panelOpenState = true;
+    }
+  }
+
   ngOnInit() {
     this.router.events.subscribe(() => {
       this.currentPath = this.router.url.slice(1)?.split('/');
@@ -87,9 +98,8 @@ export class PrivateLayoutComponent {
       }
     });
   }
-  togglePanel(panel: any) {
-    if (panel) {
-      this.panelOpenState = true;
-    }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }

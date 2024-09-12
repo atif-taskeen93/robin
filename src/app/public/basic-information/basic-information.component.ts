@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
+import { LoadingService } from '../../services/loading/loading.service';
 
 @Component({
   selector: 'app-basic-information',
@@ -10,14 +11,20 @@ import { ScreenSizeService } from '../../services/screen-size/screen-size.servic
 })
 export class BasicInformationComponent {
   col: number = 3;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
-    private screenSizeService: ScreenSizeService
+    private screenSizeService: ScreenSizeService,
+    private loadingService: LoadingService,
   ) {}
 
   onButtonClick() {
-    this.router.navigate(['/public/insurance-information']);
+    this.loadingService.show()
+    setTimeout(() => {
+      this.router.navigate(['/public/insurance-information']);
+      this.loadingService.hide()
+    }, 2000)
   }
 
   ngOnInit() {
@@ -27,6 +34,9 @@ export class BasicInformationComponent {
       } else {
         this.col = 3;
       }
+    });
+    this.loadingService.getLoadingState().subscribe((state) => {
+      this.loading = state;
     });
   }
 }

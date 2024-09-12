@@ -28,6 +28,7 @@
     </mat-drawer>
     <mat-drawer-content>
       <div class="main-content" [ngClass]="isLargeScreen ? 'ml-0' : ''">
+        <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
         <router-outlet></router-outlet>
       </div>
     </mat-drawer-content>

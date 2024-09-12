@@ -5,6 +5,8 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
 import { HandlePublicNavigationService } from '../../services/handle-public-navigation/handle-public-navigation.service';
+import { LoadingService } from '../../services/loading/loading.service';
+
 import {
   PUBLIC_ROUTES,
   BLANK_PUBLIC_ROUTE,
@@ -29,11 +31,13 @@ export class PublicLayoutComponent {
   isLargeScreen: boolean = false;
   isNavOpen: boolean = false;
   dialogRef: MatDialogRef<ConfirmationDialogComponent> | undefined;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
     private screenSizeService: ScreenSizeService,
     private handlePublicNavigationService: HandlePublicNavigationService,
+    private loadingService: LoadingService,
     public dialog: MatDialog
   ) {}
 
@@ -85,6 +89,9 @@ export class PublicLayoutComponent {
     });
     this.handlePublicNavigationService.getOpenState().subscribe((state) => {
       this.isNavOpen = state;
+    });
+    this.loadingService.getLoadingState().subscribe((state) => {
+      this.loading = state;
     });
   }
 }

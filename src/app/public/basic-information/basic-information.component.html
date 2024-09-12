@@ -5,22 +5,22 @@
 
   <mat-grid-list [cols]="col" rowHeight="60px" gutterSize="24px">
     <mat-grid-tile>
-      <mat-form-field appearance="fill" style="width: 100%">
+      <mat-form-field appearance="fill" style="width: 100%" >
         <mat-label>First Name *</mat-label>
-        <input matInput />
+        <input matInput [disabled]="loading" [disabled]="loading"/>
       </mat-form-field>
     </mat-grid-tile>
 
     <mat-grid-tile>
       <mat-form-field appearance="fill">
         <mat-label>Last Name *</mat-label>
-        <input matInput />
+        <input matInput [disabled]="loading" />
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field>
         <mat-label>Date Of Birth *</mat-label>
-        <input matInput [matDatepicker]="picker" />
+        <input matInput [disabled]="loading" [matDatepicker]="picker" />
         <mat-datepicker-toggle
           matIconSuffix
           [for]="picker"
@@ -34,20 +34,20 @@
     <mat-grid-tile>
       <mat-form-field appearance="fill" style="width: 100%">
         <mat-label>Address 1 *</mat-label>
-        <input matInput />
+        <input matInput [disabled]="loading" />
       </mat-form-field>
     </mat-grid-tile>
 
     <mat-grid-tile>
       <mat-form-field appearance="fill">
         <mat-label>Address 2</mat-label>
-        <input matInput />
+        <input matInput [disabled]="loading" />
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field appearance="fill">
         <mat-label>City *</mat-label>
-        <input matInput />
+        <input matInput [disabled]="loading" />
       </mat-form-field>
     </mat-grid-tile>
   </mat-grid-list>
@@ -56,4 +56,5 @@
   buttonText="Insurance Information"
   [buttonAction]="onButtonClick.bind(this)"
   [disabledSaveProgress]="false"
+  [loadingState]="loading"
 ></app-time-counter>

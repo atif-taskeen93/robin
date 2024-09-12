@@ -10,8 +10,16 @@
   </div>
   <div class="action-section">
     <div>
-      <button mat-button [disabled]="disabledSaveProgress">Save Progress</button>
-      <button mat-flat-button (click)="buttonAction()">{{ buttonText }}</button>
+      <button mat-button [disabled]="disabledSaveProgress || loadingState">
+        Save Progress
+      </button>
+      <button
+        mat-flat-button
+        (click)="buttonAction()"
+        [disabled]="loadingState"
+      >
+        {{ buttonText }}
+      </button>
     </div>
   </div>
 </div>

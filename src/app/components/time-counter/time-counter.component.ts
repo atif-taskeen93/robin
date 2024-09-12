@@ -10,4 +10,5 @@ export class TimeCounterComponent {
   @Input() buttonText: string = '';
   @Input() buttonAction: () => void = () => {};
   @Input() disabledSaveProgress: boolean = false;
+  @Input() loadingState: boolean = false;
 }

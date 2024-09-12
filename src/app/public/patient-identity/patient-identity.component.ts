@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-identity',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './patient-identity.component.scss'
 })
 export class PatientIdentityComponent {
+  constructor(private router: Router) {}
 
+  submitPatientInfo() {
+    this.router.navigate(['/public/patient-forms']);
+  }
 }

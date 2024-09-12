@@ -38,9 +38,6 @@ export class BasicInformationComponent {
         this.col = 3;
       }
     });
-    this.loadingService.getLoadingState().subscribe((state) => {
-      this.loading = state;
-    });
   }
 
   ngOnDestroy(): void {

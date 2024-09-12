@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrl: './patient-identity.component.scss'
 })
 export class PatientIdentityComponent {
+  accessDenied: boolean = true;
+
   constructor(private router: Router) {}
 
   submitPatientInfo() {

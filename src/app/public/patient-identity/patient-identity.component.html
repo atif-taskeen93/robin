@@ -1,30 +1,41 @@
 <div class="box-wrapper">
+  <mat-progress-bar
+    mode="indeterminate"
+    style="position: absolute; top: 0px; left: 0px"
+    *ngIf="!accessDenied"
+  ></mat-progress-bar>
   <img src="/images/logo.png" alt="logo" loading="lazy" />
-  <h3 class="mat-headline-small">Verify your Identity</h3>
-  <p class="mat-body-large">
-    Please confirm your personal information to gain access to patient forms.
-  </p>
-  <div class="field-wrapper">
+  <div *ngIf="!accessDenied">
+    <h3 class="mat-headline-small">Verify your Identity</h3>
     <p class="mat-body-large">
-      Patient forms must be completed prior to your appointment.
+      Please confirm your personal information to gain access to patient forms.
     </p>
-    <mat-form-field appearance="fill" style="width: 100%">
-      <mat-label>Name *</mat-label>
-      <input matInput />
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Date of Birth</mat-label>
-      <input matInput [matDatepicker]="picker">
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field appearance="fill" style="width: 100%">
-      <mat-label>Last 4 Digits of Social Security </mat-label>
-      <input matInput />
-    </mat-form-field>
-    <div class="item-align-right">
-      <button mat-flat-button (click)="submitPatientInfo()">Submit</button>
+    <div class="field-wrapper">
+      <p class="mat-body-large">
+        Patient forms must be completed prior to your appointment.
+      </p>
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Name *</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Last 4 Digits of Social Security </mat-label>
+        <input matInput />
+      </mat-form-field>
+      <div class="item-align-right">
+        <button mat-flat-button (click)="submitPatientInfo()">Submit</button>
+      </div>
     </div>
   </div>
+  <app-access-denied></app-access-denied>
 </div>

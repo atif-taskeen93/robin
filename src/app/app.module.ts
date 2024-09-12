@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, model } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -9,6 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+import {
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +25,7 @@ import { PublicLayoutComponent } from './layouts/public-layout/public-layout.com
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { LoginComponent } from './auth/login/login.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +34,7 @@ import { LoginComponent } from './auth/login/login.component';
     PrivateLayoutComponent,
     SearchBarComponent,
     LoginComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,10 +48,13 @@ import { LoginComponent } from './auth/login/login.component';
     MatBadgeModule,
     MatAccordion,
     MatExpansionModule,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
+    MatProgressBarModule,
   ],
-  providers: [
-    provideAnimationsAsync(),
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideAnimationsAsync()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

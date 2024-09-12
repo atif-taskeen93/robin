@@ -14,6 +14,6 @@
 </div>
 <app-time-counter
   buttonText="Medical History"
-  [buttonAction]="onButtonClick"
+  [buttonAction]="onButtonClick.bind(this)"
   [disabledSaveProgress]="false"
 ></app-time-counter>

@@ -54,6 +54,6 @@
 </div>
 <app-time-counter
   buttonText="Insurance Information"
-  [buttonAction]="onButtonClick"
+  [buttonAction]="onButtonClick.bind(this)"
   [disabledSaveProgress]="false"
 ></app-time-counter>

@@ -14,6 +14,6 @@
 </div>
 <app-time-counter
   buttonText="Sexual Health"
-  [buttonAction]="onButtonClick"
+  [buttonAction]="onButtonClick.bind(this)"
   [disabledSaveProgress]="false"
 ></app-time-counter>

@@ -10,6 +10,6 @@ export class MedicalHistoryComponent {
   constructor(private router: Router) {}
 
   onButtonClick() {
-    this.router.navigate(['/public/insurance-information']);
+    this.router.navigate(['/public/sexual-health']);
   }
 }

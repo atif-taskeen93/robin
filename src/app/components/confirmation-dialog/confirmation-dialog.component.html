@@ -1,0 +1,17 @@
+<div class="dialog-container">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <h3 mat-dialog-title class="mat-headline-small">{{ data.title }}</h3>
+  <mat-dialog-content>
+    <p class="mat-body-medium">
+      {{ data.description }}
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [disabled]="isLoading">
+      Exit Without Saving
+    </button>
+    <button mat-flat-button (click)="onOkClick()" [disabled]="isLoading">
+      Continue Editing
+    </button>
+  </mat-dialog-actions>
+</div>

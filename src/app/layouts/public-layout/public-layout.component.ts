@@ -54,15 +54,16 @@ export class PublicLayoutComponent {
       width: '480px',
       data: {
         title: 'Unsaved changes',
-        description: 'You have changes to your form that have not been saved or submitted.',
-      }
+        description:
+          'You have changes to your form that have not been saved or submitted.',
+      },
     });
 
     // Listen for the `okClicked` event from the dialog component
     this.dialogRef.componentInstance.okClicked.subscribe((result) => {
       console.log('OK button was clicked');
       if (this.dialogRef) {
-        this.dialogRef.componentInstance.isLoading = true
+        this.dialogRef.componentInstance.isLoading = true;
       }
       this.performAction();
     });
@@ -72,31 +73,39 @@ export class PublicLayoutComponent {
     setTimeout(() => {
       console.log('Action completed');
       if (this.dialogRef) {
-        this.dialogRef.componentInstance.isLoading = false
+        this.dialogRef.componentInstance.isLoading = false;
         this.dialogRef.close();
       }
     }, 2000);
   }
 
   ngOnInit() {
-    this.router.events.subscribe(() => {
-      this.isNavOpen = false;
-      this.currentPath = this.router.url.slice(1)?.split('/');
-      if (BLANK_PUBLIC_ROUTE.includes(this.currentPath.join('/'))) {
-        this.showNavigation = false;
-      } else {
-        this.showNavigation = true;
-      }
-    });
-    this.screenSizeService.isLargeScreen().subscribe((result) => {
-      this.isLargeScreen = result.matches;
-    });
-    this.handlePublicNavigationService.getOpenState().subscribe((state) => {
-      this.isNavOpen = state;
-    });
-    this.loadingService.getLoadingState().subscribe((state) => {
-      this.loading = state;
-    });
+    this.subscriptions.add(
+      this.router.events.subscribe(() => {
+        this.isNavOpen = false;
+        this.currentPath = this.router.url.slice(1)?.split('/');
+        if (BLANK_PUBLIC_ROUTE.includes(this.currentPath.join('/'))) {
+          this.showNavigation = false;
+        } else {
+          this.showNavigation = true;
+        }
+      })
+    );
+    this.subscriptions.add(
+      this.screenSizeService.isLargeScreen().subscribe((result) => {
+        this.isLargeScreen = result.matches;
+      })
+    );
+    this.subscriptions.add(
+      this.handlePublicNavigationService.getOpenState().subscribe((state) => {
+        this.isNavOpen = state;
+      })
+    );
+    this.subscriptions.add(
+      this.loadingService.getLoadingState().subscribe((state) => {
+        this.loading = state;
+      })
+    );
   }
 
   ngOnDestroy(): void {

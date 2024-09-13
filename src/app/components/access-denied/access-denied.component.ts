@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-access-denied',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './access-denied.component.scss'
 })
 export class AccessDeniedComponent {
-
+  @Input() description: string = '';
+  @Input() showButton: boolean = false;
 }

@@ -41,7 +41,7 @@ export class PrivateLayoutComponent {
 
   constructor(private router: Router) {}
 
-  menuItems: MenuItem[] = PRIVATE_ROUTES
+  menuItems: MenuItem[] = PRIVATE_ROUTES;
 
   onMouseEnter(selectedMenu: string) {
     const checkSubMenuExist =
@@ -83,20 +83,22 @@ export class PrivateLayoutComponent {
   }
 
   ngOnInit() {
-    this.router.events.subscribe(() => {
-      this.currentPath = this.router.url.slice(1)?.split('/');
-      if (this.currentPath.length > 1) {
-        this.isShowDrawer = true;
-        this.isSubmenuExist = true;
-        this.subMenuItems =
-          this.menuItems.find((item) => item.name === this.currentPath[0])
-            ?.submenu ?? [];
-      } else {
-        this.isShowDrawer = false;
-        this.subMenuItems = [];
-        this.isSubmenuExist = false;
-      }
-    });
+    this.subscriptions.add(
+      this.router.events.subscribe(() => {
+        this.currentPath = this.router.url.slice(1)?.split('/');
+        if (this.currentPath.length > 1) {
+          this.isShowDrawer = true;
+          this.isSubmenuExist = true;
+          this.subMenuItems =
+            this.menuItems.find((item) => item.name === this.currentPath[0])
+              ?.submenu ?? [];
+        } else {
+          this.isShowDrawer = false;
+          this.subMenuItems = [];
+          this.isSubmenuExist = false;
+        }
+      })
+    );
   }
 
   ngOnDestroy(): void {

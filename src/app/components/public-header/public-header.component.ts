@@ -16,7 +16,7 @@ export class PublicHeaderComponent {
 
   constructor(
     private handlePublicNavigationService: HandlePublicNavigationService,
-    private screenSizeService: ScreenSizeService,
+    private screenSizeService: ScreenSizeService
   ) {}
 
   toggleMenu() {
@@ -24,9 +24,11 @@ export class PublicHeaderComponent {
   }
 
   ngOnInit() {
-    this.screenSizeService.isLargeScreen().subscribe((result) => {
-      this.isLargeScreen = result.matches;
-    });
+    this.subscriptions.add(
+      this.screenSizeService.isLargeScreen().subscribe((result) => {
+        this.isLargeScreen = result.matches;
+      })
+    );
   }
 
   ngOnDestroy(): void {

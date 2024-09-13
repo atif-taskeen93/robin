@@ -2,13 +2,9 @@
   <p class="mat-title-large title">
     <mat-icon>notification_important</mat-icon>Access Denied
   </p>
-  <p class="mat-body-large">
-    Please try again, you have entered invalid or incomplete information. You
-    have
-    <b>two attempts remaining</b> before access through this link will be
-    locked.
+  <p class="mat-body-large" [innerHTML]="description">
   </p>
-  <div class="item-align-right">
+  <div class="item-align-right" *ngIf="showButton">
     <button mat-flat-button>Retry</button>
   </div>
 </div>

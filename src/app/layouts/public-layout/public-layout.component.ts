@@ -60,23 +60,19 @@ export class PublicLayoutComponent {
     });
 
     // Listen for the `okClicked` event from the dialog component
-    this.dialogRef.componentInstance.okClicked.subscribe((result) => {
-      console.log('OK button was clicked');
-      if (this.dialogRef) {
-        this.dialogRef.componentInstance.isLoading = true;
-      }
-      this.performAction();
-    });
-  }
+    this.subscriptions.add(
+      this.dialogRef.componentInstance.okClicked.subscribe(() => {
+        this.dialogRef?.close();
+      })
+    );
 
-  performAction(): void {
-    setTimeout(() => {
-      console.log('Action completed');
-      if (this.dialogRef) {
-        this.dialogRef.componentInstance.isLoading = false;
-        this.dialogRef.close();
-      }
-    }, 2000);
+    // Listen for the `cancelClicked` event from the dialog component
+    this.subscriptions.add(
+      this.dialogRef.componentInstance.cancelClicked.subscribe(() => {
+        this.router.navigate(['/public/patient-forms']);
+        this.dialogRef?.close();
+      })
+    );
   }
 
   ngOnInit() {

@@ -10,6 +10,7 @@ export class ConfirmationDialogComponent {
   isLoading: boolean = false;
   // Declare okClicked as an EventEmitter
   @Output() okClicked = new EventEmitter<void>();
+  @Output() cancelClicked = new EventEmitter<void>();
 
   constructor(
     public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
@@ -20,6 +21,6 @@ export class ConfirmationDialogComponent {
   }
 
   onCloseClick(): void {
-    this.dialogRef.close(false);
+    this.cancelClicked.emit();
   }
 }

@@ -2,34 +2,31 @@
   <img src="/images/logo.png" alt="logo" loading="lazy" />
   <h3 class="mat-headline-small">Patient Forms</h3>
   <p class="mat-body-large">
-    United Health Partners has requested you complete the required patient forms prior to your upcoming appointment.
+    United Health Partners has requested you complete the required patient forms
+    prior to your upcoming appointment.
   </p>
-  <div class="form-list-wrapper">
+  <div class="form-list-wrapper" *ngIf="todoList.length > 0">
     <h3 class="mat-title-medium">To Do</h3>
     <ul>
-      <li class="border1">
-        <a [routerLink]="['/public/basic-information']">
+      <li class="border1" *ngFor="let item of todoList">
+        <a [routerLink]="[item.path]">
           <div>
-            <p class="mat-body-large">Patient Registration</p>
-            <p class="mat-body-medium">4 steps</p>
+            <p class="mat-body-large">{{ item.title }}</p>
+            <p class="mat-body-medium">{{ item.steps }} steps</p>
           </div>
           <mat-icon>arrow_right</mat-icon>
         </a>
       </li>
-      <li class="border1">
-        <a>
+    </ul>
+  </div>
+  <div class="form-list-wrapper" *ngIf="completeList.length > 0">
+    <h3 class="mat-title-medium">Completed</h3>
+    <ul>
+      <li class="border1" *ngFor="let item of completeList">
+        <a [routerLink]="[item.path]">
           <div>
-            <p class="mat-body-large">Medicare Copayment</p>
-            <p class="mat-body-medium">4 steps</p>
-          </div>
-          <mat-icon>arrow_right</mat-icon>
-        </a>
-      </li>
-      <li class="border1">
-        <a>
-          <div>
-            <p class="mat-body-large">Patient Admission and Consent</p>
-            <p class="mat-body-medium">4 steps</p>
+            <p class="mat-body-large">{{ item.title }}</p>
+            <p class="mat-body-medium">{{ item.steps }} steps</p>
           </div>
           <mat-icon>arrow_right</mat-icon>
         </a>

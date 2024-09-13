@@ -103,4 +103,28 @@ export const PRIVATE_ROUTES = [
   },
 ];
 
-export const BLANK_PUBLIC_ROUTE = ['public/patient-identity', 'public/patient-forms']
+export const BLANK_PUBLIC_ROUTE = [
+  'public/patient-identity',
+  'public/patient-forms',
+];
+
+export const PATIENT_LIST_FORM = [
+  {
+    path: '/public/basic-information',
+    title: 'Patient Registration',
+    steps: 4,
+    isCompleted: false,
+  },
+  {
+    path: '',
+    title: 'Medicare Copayment',
+    steps: 4,
+    isCompleted: false,
+  },
+  {
+    path: '',
+    title: 'Patient Admission and Consent',
+    steps: 4,
+    isCompleted: false,
+  }
+]

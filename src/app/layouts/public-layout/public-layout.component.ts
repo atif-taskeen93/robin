@@ -78,6 +78,7 @@ export class PublicLayoutComponent {
   ngOnInit() {
     this.subscriptions.add(
       this.router.events.subscribe(() => {
+        document.getElementsByTagName('mat-drawer-content')[0].scrollTo(0, 0);
         this.isNavOpen = false;
         this.currentPath = this.router.url.slice(1)?.split('/');
         if (BLANK_PUBLIC_ROUTE.includes(this.currentPath.join('/'))) {

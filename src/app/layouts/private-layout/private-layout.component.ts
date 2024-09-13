@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { PRIVATE_ROUTES } from '../../core/constants/app.constants';
+import { LoadingService } from '../../services/loading/loading.service';
 
 import { Subscription } from 'rxjs';
 
@@ -36,10 +38,11 @@ export class PrivateLayoutComponent {
   isSubmenuExist: boolean = false;
   currentPath: string[] = [];
   panelOpenState: boolean = false;
+  loading: boolean = false;
 
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private loadingService: LoadingService,) {}
 
   menuItems: MenuItem[] = PRIVATE_ROUTES;
 
@@ -97,6 +100,11 @@ export class PrivateLayoutComponent {
           this.subMenuItems = [];
           this.isSubmenuExist = false;
         }
+      })
+    );
+    this.subscriptions.add(
+      this.loadingService.getLoadingState().subscribe((state) => {
+        this.loading = state;
       })
     );
   }

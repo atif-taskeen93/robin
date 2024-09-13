@@ -24,11 +24,13 @@ $light-theme: mat.define-theme(
   background: mat.get-theme-color($light-theme, surface-container-low);
 }
 
-html,
+html { 
+  scroll-behavior: smooth;
+  height: 100%; 
+}
+
 body {
   height: 100%;
-}
-body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

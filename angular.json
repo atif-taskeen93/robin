@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "uhi-new": {
+    "neptune": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/uhi-new",
+            "outputPath": "dist/neptune",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "uhi-new:build:production"
+              "buildTarget": "neptune:build:production"
             },
             "development": {
-              "buildTarget": "uhi-new:build:development"
+              "buildTarget": "neptune:build:development"
             }
           },
           "defaultConfiguration": "development"

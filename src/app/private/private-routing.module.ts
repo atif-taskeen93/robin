@@ -8,7 +8,7 @@ import { PatientInformationComponent } from './patient-information/patient-infor
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     children: [
       {
         path: 'patients/patients-summary/basic-information',
@@ -32,11 +32,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
     ],
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PrivateRoutingModule { }
+export class PrivateRoutingModule {}

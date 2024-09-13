@@ -42,7 +42,10 @@ export class PrivateLayoutComponent {
 
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private router: Router, private loadingService: LoadingService,) {}
+  constructor(
+    private router: Router,
+    private loadingService: LoadingService
+  ) {}
 
   menuItems: MenuItem[] = PRIVATE_ROUTES;
 

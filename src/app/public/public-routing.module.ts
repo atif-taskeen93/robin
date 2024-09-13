@@ -9,50 +9,50 @@ import { PatientFormsComponent } from './patient-forms/patient-forms.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     children: [
       {
         path: 'patient-identity',
         pathMatch: 'full',
         component: PatientIdentityComponent,
-        title: 'UHP | Patient Identity'
+        title: 'UHP | Patient Identity',
       },
       {
         path: 'patient-forms',
         pathMatch: 'full',
         component: PatientFormsComponent,
-        title: 'UHP | Patient Forms'
+        title: 'UHP | Patient Forms',
       },
       {
         path: 'basic-information',
         pathMatch: 'full',
         component: BasicInformationComponent,
-        title: 'UHP | Basic Information'
+        title: 'UHP | Basic Information',
       },
       {
         path: 'insurance-information',
         pathMatch: 'full',
         component: InsuranceInformationComponent,
-        title: 'UHP | Insurance Information'
+        title: 'UHP | Insurance Information',
       },
       {
         path: 'medical-history',
         pathMatch: 'full',
         component: MedicalHistoryComponent,
-        title: 'UHP | Medical History'
+        title: 'UHP | Medical History',
       },
       {
         path: 'sexual-health',
         pathMatch: 'full',
         component: SexualHealthComponent,
-        title: 'UHP | Sexual Health'
+        title: 'UHP | Sexual Health',
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PublicRoutingModule { }
+export class PublicRoutingModule {}

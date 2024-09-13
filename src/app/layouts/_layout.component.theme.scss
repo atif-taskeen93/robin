@@ -1,4 +1,4 @@
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 
 @mixin theme($theme) {
   .sidenav {
@@ -58,9 +58,6 @@
     }
   }
   .border1 {
-    border-color: mat.get-theme-color(
-      $theme,
-      surface-container-low
-    ) !important;
+    border-color: mat.get-theme-color($theme, surface-container-low) !important;
   }
 }

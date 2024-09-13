@@ -31,7 +31,7 @@ import { AccessDeniedComponent } from '../components/access-denied/access-denied
     SexualHealthComponent,
     PatientFormsComponent,
     PublicHeaderComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
   ],
   imports: [
     CommonModule,

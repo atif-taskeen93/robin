@@ -22,7 +22,10 @@ export class PatientIdentityComponent {
     You have reached the maximum number of attempts allowed for accessing the requested patient forms. Please contact <a href="mailto:suppport@clientdomain.com" class="mail"
 ">suppport@clientdomain.com</a> for assistance.`;
   private subscriptions: Subscription = new Subscription();
-  constructor(private router: Router, private loadingService: LoadingService) {}
+  constructor(
+    private router: Router,
+    private loadingService: LoadingService
+  ) {}
 
   submitPatientInfo() {
     this.loadingService.show();

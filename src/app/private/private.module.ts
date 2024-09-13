@@ -6,16 +6,12 @@ import { BasicInformationComponent } from './basic-information/basic-information
 import { CalendarComponent } from './calendar/calendar.component';
 import { PatientInformationComponent } from './patient-information/patient-information.component';
 
-
 @NgModule({
   declarations: [
     BasicInformationComponent,
     CalendarComponent,
-    PatientInformationComponent
+    PatientInformationComponent,
   ],
-  imports: [
-    CommonModule,
-    PrivateRoutingModule
-  ]
+  imports: [CommonModule, PrivateRoutingModule],
 })
-export class PrivateModule { }
+export class PrivateModule {}

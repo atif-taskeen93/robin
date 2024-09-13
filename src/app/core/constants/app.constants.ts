@@ -126,5 +126,5 @@ export const PATIENT_LIST_FORM = [
     title: 'Patient Admission and Consent',
     steps: 4,
     isCompleted: false,
-  }
-]
+  },
+];

@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './access-denied.component.scss',
 })
 export class AccessDeniedComponent {
-  @Input() description: string = '';
-  @Input() showButton: boolean = false;
+  @Input() description = '';
+  @Input() showButton = false;
 }

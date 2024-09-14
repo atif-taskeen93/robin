@@ -10,7 +10,7 @@ describe('MedicalHistoryComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [MedicalHistoryComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MedicalHistoryComponent);
     component = fixture.componentInstance;

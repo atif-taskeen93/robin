@@ -10,7 +10,7 @@ describe('TimeCounterComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [TimeCounterComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TimeCounterComponent);
     component = fixture.componentInstance;

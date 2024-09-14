@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { PRIVATE_ROUTES } from '../../core/constants/app.constants';
@@ -32,13 +32,13 @@ interface MenuItem {
   templateUrl: './private-layout.component.html',
   styleUrl: './private-layout.component.scss',
 })
-export class PrivateLayoutComponent {
+export class PrivateLayoutComponent implements OnInit, OnDestroy {
   subMenuItems: MenuSubItem[] = [];
-  isShowDrawer: boolean = false;
-  isSubmenuExist: boolean = false;
+  isShowDrawer = false;
+  isSubmenuExist = false;
   currentPath: string[] = [];
-  panelOpenState: boolean = false;
-  loading: boolean = false;
+  panelOpenState = false;
+  loading = false;
 
   private subscriptions: Subscription = new Subscription();
 
@@ -82,7 +82,7 @@ export class PrivateLayoutComponent {
     }
   }
 
-  togglePanel(panel: any) {
+  togglePanel(panel: boolean) {
     if (panel) {
       this.panelOpenState = true;
     }

@@ -10,7 +10,7 @@ describe('PublicHeaderComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PublicHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PublicHeaderComponent);
     component = fixture.componentInstance;

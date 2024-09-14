@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -9,16 +9,16 @@ import { LoadingService } from '../../services/loading/loading.service';
   templateUrl: './patient-identity.component.html',
   styleUrl: './patient-identity.component.scss',
 })
-export class PatientIdentityComponent {
-  loading: boolean = false;
-  accessDenied: boolean = false;
-  limitExceed: boolean = false;
-  descriptionContent: string = '';
-  descriptionContentAccessDenied: string = `
+export class PatientIdentityComponent implements OnInit, OnDestroy {
+  loading = false;
+  accessDenied = false;
+  limitExceed = false;
+  descriptionContent = '';
+  descriptionContentAccessDenied = `
     Please try again, you have entered invalid or incomplete information. You have
     <b>two attempts remaining</b> before access through this link will be locked.
   `;
-  descriptionContentLimitExceed: string = `
+  descriptionContentLimitExceed = `
     You have reached the maximum number of attempts allowed for accessing the requested patient forms. Please contact <a href="mailto:suppport@clientdomain.com" class="mail"
 ">suppport@clientdomain.com</a> for assistance.`;
   private subscriptions: Subscription = new Subscription();

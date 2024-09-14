@@ -10,7 +10,7 @@ describe('PublicLayoutComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PublicLayoutComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PublicLayoutComponent);
     component = fixture.componentInstance;

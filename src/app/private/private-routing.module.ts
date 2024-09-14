@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BasicInformationComponent } from './basic-information/basic-information.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { PatientIdentityComponent } from '../public/patient-identity/patient-identity.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { PatientInformationComponent } from './patient-information/patient-information.component';
 

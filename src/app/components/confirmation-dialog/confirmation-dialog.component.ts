@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrl: './confirmation-dialog.component.scss',
 })
 export class ConfirmationDialogComponent {
-  isLoading: boolean = false;
+  isLoading = false;
   // Declare okClicked as an EventEmitter
   @Output() okClicked = new EventEmitter<void>();
   @Output() cancelClicked = new EventEmitter<void>();

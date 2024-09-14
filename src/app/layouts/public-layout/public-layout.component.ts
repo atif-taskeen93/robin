@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -25,14 +25,14 @@ interface MenuItem {
   templateUrl: './public-layout.component.html',
   styleUrl: './public-layout.component.scss',
 })
-export class PublicLayoutComponent {
+export class PublicLayoutComponent implements OnInit, OnDestroy {
   routes: MenuItem[] = PUBLIC_ROUTES;
   currentPath: string[] = [];
-  showNavigation: boolean = true;
-  isLargeScreen: boolean = false;
-  isNavOpen: boolean = false;
+  showNavigation = true;
+  isLargeScreen = false;
+  isNavOpen = false;
   dialogRef: MatDialogRef<ConfirmationDialogComponent> | undefined;
-  loading: boolean = false;
+  loading = false;
 
   private subscriptions: Subscription = new Subscription();
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
@@ -10,9 +10,9 @@ import { LoadingService } from '../../services/loading/loading.service';
   templateUrl: './basic-information.component.html',
   styleUrl: './basic-information.component.scss',
 })
-export class BasicInformationComponent {
-  col: number = 3;
-  loading: boolean = false;
+export class BasicInformationComponent implements OnInit, OnDestroy {
+  col = 3;
+  loading = false;
 
   private subscriptions: Subscription = new Subscription();
 

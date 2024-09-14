@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './time-counter.component.scss',
 })
 export class TimeCounterComponent {
-  @Input() buttonText: string = '';
-  @Input() buttonAction: () => void = () => {};
-  @Input() disabledSaveProgress: boolean = false;
-  @Input() loadingState: boolean = false;
+  @Input() buttonText = '';
+  @Input() buttonAction!: () => void;
+  @Input() disabledSaveProgress = false;
+  @Input() loadingState = false;
 }

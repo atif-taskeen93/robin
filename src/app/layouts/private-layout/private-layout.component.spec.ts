@@ -10,7 +10,7 @@ describe('PrivateLayoutComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [PrivateLayoutComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PrivateLayoutComponent);
     component = fixture.componentInstance;

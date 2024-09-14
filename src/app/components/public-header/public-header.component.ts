@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 import { HandlePublicNavigationService } from '../../services/handle-public-navigation/handle-public-navigation.service';
@@ -9,8 +9,8 @@ import { ScreenSizeService } from '../../services/screen-size/screen-size.servic
   templateUrl: './public-header.component.html',
   styleUrl: './public-header.component.scss',
 })
-export class PublicHeaderComponent {
-  isLargeScreen: boolean = false;
+export class PublicHeaderComponent implements OnInit, OnDestroy {
+  isLargeScreen = false;
 
   private subscriptions: Subscription = new Subscription();
 
@@ -35,5 +35,5 @@ export class PublicHeaderComponent {
     this.subscriptions.unsubscribe();
   }
 
-  @Input() heading: string = '';
+  @Input() heading = '';
 }

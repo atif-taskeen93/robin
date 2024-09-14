@@ -10,7 +10,7 @@ describe('AccessDeniedComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AccessDeniedComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AccessDeniedComponent);
     component = fixture.componentInstance;

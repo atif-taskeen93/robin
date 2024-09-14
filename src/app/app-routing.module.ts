@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { LoginComponent } from './auth/login/login.component';
 
 import { NoAuthGuard } from './core/guards/nonAuth.guard';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   // private route
@@ -23,6 +24,7 @@ const routes: Routes = [
         path: '',
         loadChildren: () =>
           import('./private/private.module').then((m) => m.PrivateModule),
+        canActivate: [AuthGuard],
       },
     ],
   },

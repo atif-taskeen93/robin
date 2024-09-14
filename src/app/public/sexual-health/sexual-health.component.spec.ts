@@ -8,9 +8,8 @@ describe('SexualHealthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SexualHealthComponent]
-    })
-    .compileComponents();
+      declarations: [SexualHealthComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SexualHealthComponent);
     component = fixture.componentInstance;

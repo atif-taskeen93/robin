@@ -1,4 +1,4 @@
-import { NgModule, model } from '@angular/core';
+import { NgModule, afterNextRender } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 

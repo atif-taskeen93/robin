@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './auth/login/login.component';
+
+import { NoAuthGuard } from './core/guards/nonAuth.guard';
 
 const routes: Routes = [
   // private route
@@ -44,6 +47,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     pathMatch: 'full',
+    canActivate: [NoAuthGuard],
   },
   // Wildcard route for a 404 page
   { path: '**', component: PageNotFoundComponent },

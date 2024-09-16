@@ -1,11 +1,11 @@
-<div class="box-wrapper">
+<div class="box-wrapper" *ngIf="!accessDenied && !limitExceed">
   <mat-progress-bar
     mode="indeterminate"
     style="position: absolute; top: 0px; left: 0px"
     *ngIf="loading"
   ></mat-progress-bar>
   <img src="/images/logo.png" alt="logo" loading="lazy" />
-  <div *ngIf="!accessDenied && !limitExceed">
+  <div>
     <h3 class="mat-headline-small">Verify your Identity</h3>
     <p class="mat-body-large">
       Please confirm your personal information to gain access to patient forms.
@@ -43,9 +43,9 @@
       </div>
     </div>
   </div>
-  <app-access-denied
-    *ngIf="accessDenied || limitExceed"
-    [description]="descriptionContent"
-    [showButton]="accessDenied"
-  ></app-access-denied>
 </div>
+<app-access-denied
+  *ngIf="accessDenied || limitExceed"
+  [description]="descriptionContentAccessDenied"
+  [showButton]="accessDenied"
+></app-access-denied>

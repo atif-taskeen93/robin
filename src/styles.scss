@@ -88,6 +88,10 @@ mat-label {
   align-items: center;
 }
 
+.mat-mdc-dialog-surface {
+  background-color: white !important;
+}
+
 .item-align-right {
   display: flex;
   justify-content: end;

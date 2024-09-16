@@ -6,6 +6,6 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   isAuthenticated(): boolean {
     // return !!localStorage.getItem('authToken');
-    return false;
+    return true;
   }
 }

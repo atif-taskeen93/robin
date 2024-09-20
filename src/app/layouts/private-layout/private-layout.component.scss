@@ -205,6 +205,9 @@
               outline: none;
             }
             li {
+              &.submenu-items {
+                margin-left: 14px;
+              }
               button {
                 display: flex;
                 align-items: center;

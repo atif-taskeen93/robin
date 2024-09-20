@@ -155,7 +155,7 @@
             >
               <mat-icon>arrow_back</mat-icon>Main Menu
             </button>
-            <li *ngFor="let menu of subMenuItems">
+            <li *ngFor="let menu of subMenuItems" class="submenu-items">
               <mat-accordion *ngIf="(menu.children ?? []).length > 0">
                 <mat-expansion-panel
                   [expanded]="menu.name === currentPath[1] ? true : false"

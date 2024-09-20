@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { PRIVATE_ROUTES } from '../../core/constants/app.constants';
 import { LoadingService } from '../../services/loading/loading.service';
+import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
 
 import { Subscription } from 'rxjs';
 
@@ -39,12 +40,15 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   currentPath: string[] = [];
   panelOpenState = false;
   loading = false;
+  isLargeScreen = false;
+  isNavOpen = false;
 
   private subscriptions: Subscription = new Subscription();
 
   constructor(
     private router: Router,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private screenSizeService: ScreenSizeService
   ) {}
 
   menuItems: MenuItem[] = PRIVATE_ROUTES;
@@ -88,9 +92,18 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
     }
   }
 
+  openNav() {
+    this.isNavOpen = true;
+  }
+
+  closeNav() {
+    this.isNavOpen = false;
+  }
+
   ngOnInit() {
     this.subscriptions.add(
       this.router.events.subscribe(() => {
+        this.isNavOpen = false;
         this.currentPath = this.router.url.slice(1)?.split('/');
         if (this.currentPath.length > 1) {
           this.isShowDrawer = true;
@@ -108,6 +121,11 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.loadingService.getLoadingState().subscribe((state) => {
         this.loading = state;
+      })
+    );
+    this.subscriptions.add(
+      this.screenSizeService.isLargeScreen().subscribe((result) => {
+        this.isLargeScreen = result.matches;
       })
     );
   }

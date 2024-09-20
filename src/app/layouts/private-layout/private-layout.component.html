@@ -1,14 +1,35 @@
 <mat-toolbar class="toolbar">
-  <a [routerLink]="['/']">
-    <img src="/images/logo.png" alt="logo" loading="lazy" />
-  </a>
+  <div class="left-panel">
+    <button
+      mat-icon-button
+      color="primary"
+      aria-label="icon button with a menu icon"
+      class="menu-btn"
+      (click)="openNav()"
+      *ngIf="!isNavOpen"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      color="primary"
+      aria-label="icon button with a menu icon"
+      class="menu-btn"
+      (click)="closeNav()"
+      *ngIf="isNavOpen"
+    >
+      <mat-icon *ngIf="isNavOpen">close</mat-icon>
+    </button>
+    <a [routerLink]="['/']" class="logo-wrapper">
+      <img src="/images/logo.svg" alt="logo" loading="lazy" />
+    </a>
+  </div>
   <div class="right-panel">
     <mat-progress-bar
       mode="indeterminate"
       style="position: absolute; top: 0px; left: 0px"
       *ngIf="loading"
     ></mat-progress-bar>
-    <app-search-bar></app-search-bar>
     <div class="config-container">
       <mat-icon
         mat-icon-button
@@ -68,13 +89,14 @@
     <mat-drawer-container class="sidenav-container">
       <mat-drawer
         #drawer
-        mode="side"
-        [opened]="isShowDrawer || isSubmenuExist"
+        [mode]="isLargeScreen ? 'over' : 'side'"
+        [opened]="isLargeScreen ? isNavOpen : true"
         fixedInViewport
         (mouseleave)="onMouseLeave()"
         (openedChange)="togglePanel($event)"
+        (closed)="closeNav()"
       >
-        <ul>
+        <ul class="menu-large-screen">
           <li *ngFor="let menu of subMenuItems">
             <mat-accordion *ngIf="(menu.children ?? []).length > 0">
               <mat-expansion-panel
@@ -108,6 +130,11 @@
             >
           </li>
         </ul>
+        <div class="menu-small-screen">
+          <ul>
+            <li>Main</li>
+          </ul>
+        </div>
       </mat-drawer>
       <mat-drawer-content>
         <div>

@@ -25,7 +25,7 @@ export const PRIVATE_ROUTES = [
   {
     name: 'patients',
     title: 'Patients',
-    icon: '/images/persons.png',
+    icon: '/images/persons.svg',
     path: '/patients/patients-summary/basic-information',
     submenu: [
       {
@@ -83,21 +83,21 @@ export const PRIVATE_ROUTES = [
   {
     name: 'calendar',
     title: 'Calendar',
-    icon: '/images/calendar.png',
+    icon: '/images/calendar.svg',
     path: '/calendar',
     submenu: [],
   },
   {
     name: 'inbox',
     title: 'Inbox',
-    icon: '/images/mail.png',
+    icon: '/images/mail.svg',
     path: '',
     submenu: [],
   },
   {
     name: 'settings',
     title: 'Settings',
-    icon: '/images/settings.png',
+    icon: '/images/settings.svg',
     path: '',
     submenu: [],
   },

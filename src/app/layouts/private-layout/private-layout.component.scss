@@ -1,18 +1,20 @@
 .toolbar {
-  padding: 12px 30px;
+  padding: 12px;
   display: flex;
   align-items: center;
   position: fixed;
   width: 100%;
   z-index: 2;
   top: 0px;
+  justify-content: space-between;
+  .menu-btn {
+    display: none;
+  }
   a {
     display: flex;
-    width: 300px;
   }
   .right-panel {
     display: flex;
-    width: calc(100% - 324px);
     align-items: center;
     justify-content: space-between;
     .config-container {
@@ -96,6 +98,9 @@
         width: 260px;
         box-shadow: none;
         transition: box-shadow 0.8s;
+        .menu-small-screen {
+          display: none;
+        }
         &:hover {
           box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.1);
         }
@@ -103,7 +108,7 @@
           padding: 18px 10px;
           > li {
             min-height: 48px;
-            margin-top: 4px;
+            margin-top: 2px;
             line-height: 48px;
             cursor: pointer;
             border-radius: 24px;
@@ -150,10 +155,57 @@
       }
       mat-drawer-content {
         > div {
-          margin: 12px;
+          padding: 12px;
           height: auto;
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1268px) {
+  .toolbar {
+    .left-panel {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .menu-btn {
+      display: unset;
+    }
+  }
+  .main {
+    nav {
+      display: none;
+    }
+    mat-drawer-container {
+      margin-left: 0px !important;
+      mat-drawer {
+        width: 300px !important;
+        .menu-large-screen {
+          display: none;
+        }
+        .menu-small-screen {
+          display: unset !important;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .toolbar {
+    height: 64px;
+    .left-panel {
+      gap: 8px;
+      .logo-wrapper {
+        img {
+          width: 110px;
+        }
+      }
+    }
+    .menu-btn {
+      display: unset;
     }
   }
 }

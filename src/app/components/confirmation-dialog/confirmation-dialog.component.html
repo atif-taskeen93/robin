@@ -10,7 +10,12 @@
     <button mat-button (click)="onCloseClick()" [disabled]="isLoading">
       Exit Without Saving
     </button>
-    <button mat-flat-button (click)="onOkClick()" [disabled]="isLoading">
+    <button
+      mat-flat-button
+      (click)="onOkClick()"
+      [disabled]="isLoading"
+      cdkFocusInitial
+    >
       Continue Editing
     </button>
   </mat-dialog-actions>

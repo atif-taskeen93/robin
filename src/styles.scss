@@ -49,6 +49,9 @@ ul {
 
 li {
   list-style: none;
+  -webkit-tap-highlight-color: transparent; /* Remove blue highlight on Android */
+  -webkit-touch-callout: none; /* Disable touch callout on iOS */
+  -webkit-user-select: none;
 }
 a {
   color: inherit;

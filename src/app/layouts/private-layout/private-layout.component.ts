@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 
 import { PRIVATE_ROUTES } from '../../core/constants/app.constants';
@@ -32,6 +33,23 @@ interface MenuItem {
   selector: 'app-private-layout',
   templateUrl: './private-layout.component.html',
   styleUrl: './private-layout.component.scss',
+  animations: [
+    trigger('slideInOut', [
+      transition(':enter', [
+        style({ transform: 'translateX(100%)', opacity: 0 }), // Start off-screen right
+        animate(
+          '0.3s ease-in',
+          style({ transform: 'translateX(0)', opacity: 1 })
+        ), // Slide in
+      ]),
+      transition(':leave', [
+        animate(
+          '0.3s ease-out',
+          style({ transform: 'translateX(-100%)', opacity: 0 })
+        ), // Slide out left
+      ]),
+    ]),
+  ],
 })
 export class PrivateLayoutComponent implements OnInit, OnDestroy {
   subMenuItems: MenuSubItem[] = [];
@@ -76,6 +94,7 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
       this.menuItems.find((item) => item.name === menu)?.submenu?.length === 0
         ? false
         : true;
+    console.log(checkSubMenuExist);
     if (checkSubMenuExist) {
       this.isSubmenuExist = true;
     } else {
@@ -98,6 +117,22 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
 
   closeNav() {
     this.isNavOpen = false;
+  }
+
+  handleRoute(path: string | undefined, selectedMenu: string) {
+    if (path) {
+      this.router.navigate([path]);
+    } else {
+      this.isSubmenuExist = true;
+      this.subMenuItems =
+        this.menuItems.find((item) => item.name === selectedMenu)?.submenu ??
+        [];
+    }
+  }
+
+  goToMainMenu() {
+    this.isSubmenuExist = false;
+    this.subMenuItems = [];
   }
 
   ngOnInit() {

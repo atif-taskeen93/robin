@@ -60,4 +60,7 @@
   .border1 {
     border-color: mat.get-theme-color($theme, surface-container-low) !important;
   }
+  .bg-theme {
+    background-color: mat.get-theme-color($theme, primary-container) !important;
+  }
 }

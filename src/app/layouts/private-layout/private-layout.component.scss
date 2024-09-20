@@ -182,11 +182,52 @@
       margin-left: 0px !important;
       mat-drawer {
         width: 300px !important;
+        overflow-x: hidden;
         .menu-large-screen {
           display: none;
         }
         .menu-small-screen {
           display: unset !important;
+          > ul {
+            position: absolute; /* Position ul elements on top of each other */
+            top: 0;
+            left: 0;
+            width: calc(100% - 20px); /* Ensure full width */
+            transition: transform 0.3s ease;
+            .back-menu-btn {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              height: 48px;
+              margin-bottom: 2px;
+              border: none;
+              background: transparent;
+              outline: none;
+            }
+            li {
+              button {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0px 16px 0px 0px;
+                border: none;
+                width: 100%;
+                outline: none;
+                border-radius: 24px;
+                background-color: transparent;
+                span {
+                  display: flex;
+                  align-items: center;
+                  height: 48px;
+                }
+              }
+              a {
+                &.child-menu {
+                  padding: 0px 20px;
+                }
+              }
+            }
+          }
         }
       }
     }

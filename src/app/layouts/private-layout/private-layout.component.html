@@ -90,7 +90,7 @@
       <mat-drawer
         #drawer
         [mode]="isLargeScreen ? 'over' : 'side'"
-        [opened]="isLargeScreen ? isNavOpen : true"
+        [opened]="isLargeScreen ? isNavOpen : isShowDrawer || isSubmenuExist"
         fixedInViewport
         (mouseleave)="onMouseLeave()"
         (openedChange)="togglePanel($event)"
@@ -130,9 +130,69 @@
             >
           </li>
         </ul>
-        <div class="menu-small-screen">
-          <ul>
-            <li>Main</li>
+        <div class="menu-small-screen main-menu">
+          <ul *ngIf="!isSubmenuExist" @slideInOut>
+            <li *ngFor="let option of menuItems">
+              <button
+                (click)="
+                  handleRoute(
+                    option.submenu?.length === 0 ? option.path : '',
+                    option.name
+                  )
+                "
+                [ngClass]="currentPath[0] === option.name ? 'bg-theme' : ''"
+              >
+                <span>
+                  <img src="{{ option.icon }}" alt="logo" loading="lazy" />
+                  <p class="mat-title-small">{{ option.title }}</p>
+                </span>
+                <mat-icon *ngIf="(option.submenu ?? []).length > 0"
+                  >arrow_forward</mat-icon
+                >
+              </button>
+            </li>
+          </ul>
+          <ul *ngIf="isSubmenuExist" @slideInOut>
+            <button
+              (click)="goToMainMenu()"
+              class="mat-title-small back-menu-btn"
+            >
+              <mat-icon>arrow_back</mat-icon>Main Menu
+            </button>
+            <li *ngFor="let menu of subMenuItems">
+              <mat-accordion *ngIf="(menu.children ?? []).length > 0">
+                <mat-expansion-panel
+                  [expanded]="menu.name === currentPath[1] ? true : false"
+                >
+                  <mat-expansion-panel-header
+                    [ngClass]="menu.name === currentPath[1] ? 'active' : ''"
+                  >
+                    <mat-panel-title class="mat-title-small">{{
+                      menu.title
+                    }}</mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <ul *ngIf="panelOpenState || menu.name === currentPath[1]">
+                    <li *ngFor="let child of menu.children">
+                      <a
+                        class="mat-title-small child-menu"
+                        [ngClass]="
+                          child.name === currentPath[2] ? 'active' : ''
+                        "
+                        [routerLink]="[child.path]"
+                        >{{ child.title }}</a
+                      >
+                    </li>
+                  </ul>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <a
+                class="mat-title-small child-menu"
+                *ngIf="(menu.children ?? []).length === 0"
+                [routerLink]="[menu.path]"
+                [ngClass]="menu.name === currentPath[1] ? 'active' : ''"
+                >{{ menu.title }}</a
+              >
+            </li>
           </ul>
         </div>
       </mat-drawer>

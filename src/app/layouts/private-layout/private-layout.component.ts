@@ -7,27 +7,12 @@ import { LoadingService } from '../../services/loading/loading.service';
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
 
 import { Subscription } from 'rxjs';
-import { filterByUserAccess } from '../../core/utils/app.helpers';
-interface MenuChild {
-  name: string;
-  title: string;
-  path: string;
-}
+import {
+  filterByUserAccess,
+  MenuItem,
+  MenuSubItem,
+} from '../../core/utils/app.helpers';
 
-interface MenuSubItem {
-  name: string;
-  title: string;
-  path?: string;
-  children?: MenuChild[]; // Optional, since it can be empty
-}
-
-interface MenuItem {
-  name: string;
-  title: string;
-  icon: string;
-  path?: string;
-  submenu?: MenuSubItem[]; // Optional, since it can be empty
-}
 @Component({
   selector: 'app-private-layout',
   templateUrl: './private-layout.component.html',

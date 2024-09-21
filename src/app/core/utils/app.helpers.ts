@@ -1,24 +1,24 @@
-interface MenuChild {
+export interface MenuChild {
   name: string;
   title: string;
   path: string;
   toAccess: string[];
 }
 
-interface MenuSubItem {
+export interface MenuSubItem {
   name: string;
   title: string;
   path?: string;
-  children?: MenuChild[];
+  children: MenuChild[];
   toAccess: string[];
 }
 
-interface MenuItem {
+export interface MenuItem {
   name: string;
   title: string;
   icon: string;
   path?: string;
-  submenu?: MenuSubItem[];
+  submenu: MenuSubItem[];
   toAccess: string[];
 }
 

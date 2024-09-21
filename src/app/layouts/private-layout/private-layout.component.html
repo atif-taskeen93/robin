@@ -65,7 +65,7 @@
       <li *ngFor="let option of menuItems">
         <a
           (mouseenter)="
-            (option.submenu ?? []).length > 0
+            option.submenu.length > 0
               ? onMouseEnter(option.name)
               : onMouseLeave()
           "
@@ -132,7 +132,7 @@
               <button
                 (click)="
                   handleRoute(
-                    option.submenu?.length === 0 ? option.path : '',
+                    option.submenu.length === 0 ? option.path : '',
                     option.name
                   )
                 "

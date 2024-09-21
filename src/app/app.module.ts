@@ -24,7 +24,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
-import { LoginComponent } from './auth/login/login.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     PublicLayoutComponent,
     PrivateLayoutComponent,
     SearchBarComponent,
-    LoginComponent,
     ConfirmationDialogComponent,
   ],
   imports: [

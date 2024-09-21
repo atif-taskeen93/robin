@@ -8,6 +8,7 @@ import { LoginComponent } from './auth/login/login.component';
 
 import { NoAuthGuard } from './core/guards/nonAuth.guard';
 import { AuthGuard } from './core/guards/auth.guard';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
   // private route
@@ -50,6 +51,10 @@ const routes: Routes = [
     component: LoginComponent,
     pathMatch: 'full',
     canActivate: [NoAuthGuard],
+  },
+  {
+    path: 'unauthorized',
+    component: UnauthorizedComponent, // Show unauthorized access page
   },
   // Wildcard route for a 404 page
   { path: '**', component: PageNotFoundComponent },

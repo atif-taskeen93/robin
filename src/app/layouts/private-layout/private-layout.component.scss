@@ -10,8 +10,11 @@
   .menu-btn {
     display: none;
   }
-  a {
+  .logo-wrapper {
     display: flex;
+    img {
+      height: 32px;
+    }
   }
   .right-panel {
     display: flex;
@@ -242,11 +245,6 @@
     height: 64px;
     .left-panel {
       gap: 8px;
-      .logo-wrapper {
-        img {
-          width: 110px;
-        }
-      }
     }
     .menu-btn {
       display: unset;

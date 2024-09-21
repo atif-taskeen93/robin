@@ -7,7 +7,7 @@ import { LoadingService } from '../../services/loading/loading.service';
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
 
 import { Subscription } from 'rxjs';
-
+import { filterByUserAccess } from '../../core/utils/app.helpers';
 interface MenuChild {
   name: string;
   title: string;
@@ -28,7 +28,6 @@ interface MenuItem {
   path?: string;
   submenu?: MenuSubItem[]; // Optional, since it can be empty
 }
-
 @Component({
   selector: 'app-private-layout',
   templateUrl: './private-layout.component.html',
@@ -69,8 +68,7 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
     private screenSizeService: ScreenSizeService
   ) {}
 
-  menuItems: MenuItem[] = PRIVATE_ROUTES;
-
+  menuItems: MenuItem[] = filterByUserAccess(PRIVATE_ROUTES, 'admin');
   onMouseEnter(selectedMenu: string) {
     const checkSubMenuExist =
       this.menuItems.find((item) => item.name === selectedMenu)?.submenu
@@ -94,7 +92,6 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
       this.menuItems.find((item) => item.name === menu)?.submenu?.length === 0
         ? false
         : true;
-    console.log(checkSubMenuExist);
     if (checkSubMenuExist) {
       this.isSubmenuExist = true;
     } else {
@@ -136,6 +133,7 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    console.log(filterByUserAccess(PRIVATE_ROUTES, 'admin'));
     this.subscriptions.add(
       this.router.events.subscribe(() => {
         this.isNavOpen = false;

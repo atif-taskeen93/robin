@@ -36,49 +36,59 @@ export const PRIVATE_ROUTES = [
             name: 'basic-information',
             title: 'Basic Information',
             path: '/patients/patients-summary/basic-information',
+            toAccess: ['admin', 'patient'],
           },
           {
             name: 'treatment-provider',
             title: 'Treatment and Providers',
             path: '',
+            toAccess: ['admin', 'patient'],
           },
           {
             name: 'encounter-summary',
             title: 'Encounter Summaries',
             path: '',
+            toAccess: ['admin', 'patient'],
           },
           {
             name: 'testing-rubab-chart',
             title: 'Testing Rubab Chart',
             path: '',
+            toAccess: ['admin', 'patient'],
           },
         ],
+        toAccess: ['admin', 'patient'],
       },
       {
         name: 'patient-information',
         title: 'Patient Information',
         path: '/patients/patient-information',
         children: [],
+        toAccess: ['admin', 'patient'],
       },
       {
         name: 'appointments',
         title: 'Appointments',
         path: '',
         children: [],
+        toAccess: ['admin', 'patient'],
       },
       {
         name: 'consent-form',
         title: 'Consent Form',
         path: '',
         children: [],
+        toAccess: ['admin', 'patient'],
       },
       {
         name: 'encounter',
         title: 'Encounter',
         path: '',
         children: [],
+        toAccess: ['admin', 'patient'],
       },
     ],
+    toAccess: ['admin', 'patient'],
   },
   {
     name: 'calendar',
@@ -86,6 +96,7 @@ export const PRIVATE_ROUTES = [
     icon: '/images/calendar.svg',
     path: '/calendar',
     submenu: [],
+    toAccess: ['admin', 'patient'],
   },
   {
     name: 'inbox',
@@ -93,6 +104,7 @@ export const PRIVATE_ROUTES = [
     icon: '/images/mail.svg',
     path: '',
     submenu: [],
+    toAccess: ['admin', 'patient'],
   },
   {
     name: 'settings',
@@ -100,6 +112,7 @@ export const PRIVATE_ROUTES = [
     icon: '/images/settings.svg',
     path: '',
     submenu: [],
+    toAccess: ['admin', 'patient'],
   },
 ];
 

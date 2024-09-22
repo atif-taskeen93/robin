@@ -118,7 +118,6 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(filterByUserAccess(PRIVATE_ROUTES, 'admin'));
     this.subscriptions.add(
       this.router.events.subscribe(() => {
         this.isNavOpen = false;

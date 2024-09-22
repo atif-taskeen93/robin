@@ -21,7 +21,7 @@ const routes: Routes = [
         pathMatch: 'full',
         component: CalendarComponent,
         title: 'Robin | Calendar',
-        data: { expectedRoles: [UserRole.ADMIN, UserRole.PATIENT] },
+        data: { expectedRoles: [UserRole.PATIENT] },
       },
       {
         path: 'patients/patient-information',

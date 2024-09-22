@@ -11,7 +11,7 @@ export class AuthService {
     return true;
   }
 
-  // Example method to get user roles
+  // Method to get user roles
   getUserRoles(): string {
     return UserRole.ADMIN;
   }

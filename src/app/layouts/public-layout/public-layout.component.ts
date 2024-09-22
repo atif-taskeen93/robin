@@ -85,7 +85,9 @@ export class PublicLayoutComponent implements OnInit, OnDestroy {
         } else {
           this.showNavigation = true;
         }
-        document.getElementsByTagName('mat-drawer-content')[0].scrollTo(0, 0);
+        // if (this.showNavigation) {
+        //   document.getElementsByTagName('mat-drawer-content')[0].scrollTo(0, 0);
+        // }
       })
     );
     this.subscriptions.add(

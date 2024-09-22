@@ -44,6 +44,7 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   loading = false;
   isLargeScreen = false;
   isNavOpen = false;
+  expansionOpenState = false;
 
   private subscriptions: Subscription = new Subscription();
 

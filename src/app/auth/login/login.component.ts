@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { LoadingService } from '../../services/loading/loading.service';
 import { handleRedirection } from '../../core/utils/app.helpers';
+import { ToastMessageService } from '../../services/toast-message/toast-message.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private toastMessageService: ToastMessageService
   ) {
     // Initialize form group with form controls and validators
     this.loginForm = this.fb.group({
@@ -41,6 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
               localStorage.setItem('authData', JSON.stringify(response));
               const path = handleRedirection();
               this.router.navigate([`/${path}`]);
+              //this.toastMessageService.showSuccess('Login successful!');
             }
           },
           error: (error) => {

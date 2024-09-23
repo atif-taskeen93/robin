@@ -12,7 +12,7 @@ import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -60,6 +60,7 @@ import { provideHttpClient } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],

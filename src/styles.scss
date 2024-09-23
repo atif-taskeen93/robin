@@ -117,3 +117,26 @@ button {
 .mdc-floating-label {
   display: flex !important;
 }
+
+mat-snack-bar-container {
+  &.toastBar-success {
+    > div {
+      background-color: #4caf50 !important;
+    }
+  }
+
+  &.toastBar-error {
+    > div {
+      background-color: #f44336 !important;
+    }
+  }
+
+  &.toastBar-warning {
+    > div {
+      background-color: #ff9800 !important;
+    }
+  }
+  .mdc-button__label {
+    color: white;
+  }
+}

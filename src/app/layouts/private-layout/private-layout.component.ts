@@ -44,7 +44,6 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   loading = false;
   isLargeScreen = false;
   isNavOpen = false;
-  expansionOpenState = false;
 
   private subscriptions: Subscription = new Subscription();
 
@@ -91,6 +90,8 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   togglePanel(panel: boolean) {
     if (panel) {
       this.panelOpenState = true;
+    } else {
+      this.panelOpenState = false;
     }
   }
 

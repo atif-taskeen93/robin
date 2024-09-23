@@ -43,7 +43,6 @@
       <div class="user-info-wrapper">
         <div class="btn-wrapper" [matMenuTriggerFor]="menu">
           <button mat-fab>AT</button>
-          <mat-icon>arrow_drop_down_icon</mat-icon>
         </div>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>
@@ -97,9 +96,6 @@
             <mat-accordion *ngIf="(menu.children ?? []).length > 0">
               <mat-expansion-panel
                 [expanded]="menu.name === currentPath[1] ? true : false"
-                (opened)="expansionOpenState = true"
-                (closed)="expansionOpenState = false"
-                hideToggle="true"
               >
                 <mat-expansion-panel-header
                   [ngClass]="menu.name === currentPath[1] ? 'active' : ''"
@@ -107,10 +103,6 @@
                   <mat-panel-title class="mat-title-small">{{
                     menu.title
                   }}</mat-panel-title>
-                  <mat-icon *ngIf="!expansionOpenState"
-                    >arrow_drop_down</mat-icon
-                  >
-                  <mat-icon *ngIf="expansionOpenState">arrow_drop_up</mat-icon>
                 </mat-expansion-panel-header>
                 <ul *ngIf="panelOpenState || menu.name === currentPath[1]">
                   <li *ngFor="let child of menu.children">
@@ -166,9 +158,6 @@
               <mat-accordion *ngIf="(menu.children ?? []).length > 0">
                 <mat-expansion-panel
                   [expanded]="menu.name === currentPath[1] ? true : false"
-                  (opened)="expansionOpenState = true"
-                  (closed)="expansionOpenState = false"
-                  hideToggle="true"
                 >
                   <mat-expansion-panel-header
                     [ngClass]="menu.name === currentPath[1] ? 'active' : ''"
@@ -176,14 +165,8 @@
                     <mat-panel-title class="mat-title-small">{{
                       menu.title
                     }}</mat-panel-title>
-                    <mat-icon *ngIf="!expansionOpenState"
-                      >arrow_drop_down</mat-icon
-                    >
-                    <mat-icon *ngIf="expansionOpenState"
-                      >arrow_drop_up</mat-icon
-                    >
                   </mat-expansion-panel-header>
-                  <ul *ngIf="panelOpenState || menu.name === currentPath[1]">
+                  <ul>
                     <li *ngFor="let child of menu.children">
                       <a
                         class="mat-title-small child-menu"

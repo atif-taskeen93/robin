@@ -166,7 +166,7 @@
                       menu.title
                     }}</mat-panel-title>
                   </mat-expansion-panel-header>
-                  <ul>
+                  <ul *ngIf="panelOpenState || menu.name === currentPath[1]">
                     <li *ngFor="let child of menu.children">
                       <a
                         class="mat-title-small child-menu"

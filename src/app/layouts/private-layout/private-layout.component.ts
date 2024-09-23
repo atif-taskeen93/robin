@@ -104,6 +104,7 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   }
 
   handleRoute(path: string | undefined, selectedMenu: string) {
+    this.panelOpenState = false;
     if (path) {
       this.router.navigate([path]);
     } else {
@@ -111,6 +112,9 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
       this.subMenuItems =
         this.menuItems.find((item) => item.name === selectedMenu)?.submenu ??
         [];
+      setTimeout(() => {
+        this.panelOpenState = true;
+      }, 1000);
     }
   }
 

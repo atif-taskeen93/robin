@@ -9,6 +9,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { NoAuthGuard } from './core/guards/nonAuth.guard';
 import { AuthGuard } from './core/guards/auth.guard';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { handleRedirection } from './core/utils/app.helpers';
 
 const routes: Routes = [
   // private route
@@ -18,7 +19,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'patients/patients-summary/basic-information',
+        redirectTo: handleRedirection(),
         pathMatch: 'full',
       },
       {
@@ -51,6 +52,7 @@ const routes: Routes = [
     component: LoginComponent,
     pathMatch: 'full',
     canActivate: [NoAuthGuard],
+    title: 'Robin | login',
   },
   {
     path: 'unauthorized',

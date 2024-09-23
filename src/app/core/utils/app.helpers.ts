@@ -50,3 +50,26 @@ export const filterByUserAccess = (
       };
     });
 };
+
+export const handleRedirection = () => {
+  const storedAuthData = localStorage.getItem('authData');
+  if (storedAuthData) {
+    const parsedAuthData = JSON.parse(storedAuthData);
+    const role = parsedAuthData?.user?.Role;
+
+    switch (role) {
+    case 'Admin':
+      return 'patients/patients-summary/basic-information';
+
+    case 'Patient':
+      return 'public';
+
+    default:
+      return 'unauthorized';
+      // Handle unknown roles or unauthorized access
+      break;
+    }
+  } else {
+    return 'login';
+  }
+};

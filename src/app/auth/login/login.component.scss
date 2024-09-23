@@ -1,0 +1,35 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 40px);
+  padding: 20px;
+  .box-wrapper {
+    background-color: white;
+    width: 528px;
+    padding: 32px 24px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    img {
+      margin-bottom: 24px;
+    }
+    > p {
+      margin-top: 6px !important;
+    }
+    .field-wrapper {
+      form {
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .box-wrapper {
+    width: calc(100% - 48px);
+  }
+}

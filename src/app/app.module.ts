@@ -10,6 +10,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import {
   MatDialogActions,
@@ -18,6 +20,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -25,6 +28,8 @@ import { PublicLayoutComponent } from './layouts/public-layout/public-layout.com
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { LoginComponent } from './auth/login/login.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,7 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     PrivateLayoutComponent,
     SearchBarComponent,
     ConfirmationDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +57,11 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     MatDialogContent,
     MatDialogTitle,
     MatProgressBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

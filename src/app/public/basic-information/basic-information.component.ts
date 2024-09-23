@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { Subscription } from 'rxjs';
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
 import { LoadingService } from '../../services/loading/loading.service';

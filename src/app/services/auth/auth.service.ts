@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserRole } from '../../core/utils/app.enum';
@@ -9,11 +10,21 @@ import { environment } from '../../../environments/environment';
 })
 export class AuthService {
   private apiUrl = environment.apiUrl;
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   // Method to handle login
   login(credentials: { email: string; password: string }): Observable<object> {
     return this.http.post(`${this.apiUrl}/api/Token`, credentials);
+  }
+
+  // Method to handle login-out
+
+  loginOut() {
+    localStorage.removeItem('authData');
+    this.router.navigate([`/login`]);
   }
 
   // Method to check if the user is authenticated

@@ -56,17 +56,16 @@
     margin-left: 6px;
     .content-layout {
       background: white;
-      min-height: calc(100vh - 152px);
+      height: calc(100vh - 152px);
       padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      overflow: auto;
       .header {
         border-bottom: 1px solid #e7e0ec;
         padding-bottom: 16px;
         display: flex;
         align-items: center;
         gap: 10px;
+        margin-bottom: 16px;
       }
       .sub-title {
         border-bottom: 1px solid #e7e0ec;

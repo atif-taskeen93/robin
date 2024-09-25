@@ -1,11 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Router } from '@angular/router';
-
 import { PRIVATE_ROUTES } from '../../core/constants/app.constants';
 import { LoadingService } from '../../services/loading/loading.service';
 import { ScreenSizeService } from '../../services/screen-size/screen-size.service';
-
+import { AuthService } from '../../services/auth/auth.service';
 import { Subscription } from 'rxjs';
 import {
   filterByUserAccess,
@@ -50,7 +49,8 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private loadingService: LoadingService,
-    private screenSizeService: ScreenSizeService
+    private screenSizeService: ScreenSizeService,
+    private authService: AuthService
   ) {}
 
   menuItems: MenuItem[] = filterByUserAccess(PRIVATE_ROUTES, 'admin');
@@ -121,6 +121,10 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   goToMainMenu() {
     this.isSubmenuExist = false;
     this.subMenuItems = [];
+  }
+
+  handleLogout() {
+    this.authService.loginOut();
   }
 
   ngOnInit() {

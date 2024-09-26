@@ -87,11 +87,10 @@
         [mode]="isLargeScreen ? 'over' : 'side'"
         [opened]="isLargeScreen ? isNavOpen : isShowDrawer || isSubmenuExist"
         fixedInViewport
-        (mouseleave)="onMouseLeave()"
         (openedChange)="togglePanel($event)"
         (closed)="closeNav()"
       >
-        <ul class="menu-large-screen">
+        <ul class="menu-large-screen" [ngClass]="isChanged ? 'fade-in' : ''">
           <li *ngFor="let menu of subMenuItems">
             <mat-accordion
               *ngIf="(menu.children ?? []).length > 0"
@@ -197,7 +196,7 @@
           </ul>
         </div>
       </mat-drawer>
-      <mat-drawer-content>
+      <mat-drawer-content (mouseenter)="onMouseLeave()">
         <div>
           <router-outlet></router-outlet>
         </div>

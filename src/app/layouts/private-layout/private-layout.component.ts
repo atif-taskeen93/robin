@@ -35,6 +35,7 @@ import {
   ],
 })
 export class PrivateLayoutComponent implements OnInit, OnDestroy {
+  selectedMenu = '';
   subMenuItems: MenuSubItem[] = [];
   isShowDrawer = false;
   isSubmenuExist = false;
@@ -43,6 +44,7 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   loading = false;
   isLargeScreen = false;
   isNavOpen = false;
+  isChanged = false;
 
   private subscriptions: Subscription = new Subscription();
 
@@ -64,15 +66,23 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
       this.subMenuItems =
         this.menuItems.find((item) => item.name === selectedMenu)?.submenu ??
         [];
+    } else {
+      this.subMenuItems =
+        this.menuItems.find((item) => item.name === this.selectedMenu)
+          ?.submenu ?? [];
     }
     this.isShowDrawer = true;
   }
 
   onMouseLeave() {
     this.isShowDrawer = false;
+    this.subMenuItems =
+      this.menuItems.find((item) => item.name === this.selectedMenu)?.submenu ??
+      [];
   }
 
   onClickMenu(menu: string) {
+    this.selectedMenu = menu;
     const checkSubMenuExist =
       this.menuItems.find((item) => item.name === menu)?.submenu?.length === 0
         ? false
@@ -127,11 +137,19 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
     this.authService.loginOut();
   }
 
+  triggerMenuAnimation() {
+    this.isChanged = true;
+    setTimeout(() => {
+      this.isChanged = false;
+    }, 500);
+  }
+
   ngOnInit() {
     this.subscriptions.add(
       this.router.events.subscribe(() => {
         this.isNavOpen = false;
         this.currentPath = this.router.url.slice(1)?.split('/');
+        this.selectedMenu = this.currentPath[0];
         if (this.currentPath.length > 1) {
           this.isShowDrawer = true;
           this.isSubmenuExist = true;

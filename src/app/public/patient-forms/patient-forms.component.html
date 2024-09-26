@@ -11,8 +11,10 @@
       <li class="border1" *ngFor="let item of todoList">
         <a [routerLink]="[item.path]">
           <div>
-            <p class="mat-body-large">{{ item.title }}</p>
-            <p class="mat-body-medium">{{ item.steps }} steps</p>
+            <h3 class="mat-body-large">{{ item.title }}</h3>
+            <p class="mat-body-medium light-grey-text">
+              {{ item.steps }} steps
+            </p>
           </div>
           <mat-icon>arrow_right</mat-icon>
         </a>

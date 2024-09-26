@@ -63,4 +63,7 @@
   .bg-theme {
     background-color: mat.get-theme-color($theme, primary-container) !important;
   }
+  .light-grey-text {
+    color: mat.get-theme-color($theme, on-surface-variant);
+  }
 }

@@ -93,7 +93,10 @@
       >
         <ul class="menu-large-screen">
           <li *ngFor="let menu of subMenuItems">
-            <mat-accordion *ngIf="(menu.children ?? []).length > 0">
+            <mat-accordion
+              *ngIf="(menu.children ?? []).length > 0"
+              hideToggle="true"
+            >
               <mat-expansion-panel
                 [expanded]="menu.name === currentPath[1] ? true : false"
               >
@@ -103,6 +106,7 @@
                   <mat-panel-title class="mat-title-small">{{
                     menu.title
                   }}</mat-panel-title>
+                  <mat-icon>arrow_drop_down</mat-icon>
                 </mat-expansion-panel-header>
                 <ul *ngIf="panelOpenState || menu.name === currentPath[1]">
                   <li *ngFor="let child of menu.children">
@@ -158,6 +162,7 @@
               <mat-accordion *ngIf="(menu.children ?? []).length > 0">
                 <mat-expansion-panel
                   [expanded]="menu.name === currentPath[1] ? true : false"
+                  hideToggle="true"
                 >
                   <mat-expansion-panel-header
                     [ngClass]="menu.name === currentPath[1] ? 'active' : ''"
@@ -165,6 +170,7 @@
                     <mat-panel-title class="mat-title-small">{{
                       menu.title
                     }}</mat-panel-title>
+                    <mat-icon>arrow_drop_down</mat-icon>
                   </mat-expansion-panel-header>
                   <ul *ngIf="panelOpenState || menu.name === currentPath[1]">
                     <li *ngFor="let child of menu.children">

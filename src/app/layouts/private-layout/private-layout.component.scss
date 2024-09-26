@@ -132,10 +132,17 @@
             }
           }
         }
-        mat-expansion-panel {
+        ::ng-deep mat-expansion-panel {
           box-shadow: none;
           background: transparent;
           border-radius: 24px;
+          &.mat-expanded {
+            .mat-content-hide-toggle {
+              mat-icon {
+                transform: rotate(180deg);
+              }
+            }
+          }
           mat-expansion-panel-header {
             height: 48px;
             ::ng-deep .mat-content {

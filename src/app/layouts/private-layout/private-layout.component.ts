@@ -35,7 +35,6 @@ import {
   ],
 })
 export class PrivateLayoutComponent implements OnInit, OnDestroy {
-  selectedMenu = '';
   subMenuItems: MenuSubItem[] = [];
   isShowDrawer = false;
   isSubmenuExist = false;
@@ -66,10 +65,6 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
       this.subMenuItems =
         this.menuItems.find((item) => item.name === selectedMenu)?.submenu ??
         [];
-    } else {
-      this.subMenuItems =
-        this.menuItems.find((item) => item.name === this.selectedMenu)
-          ?.submenu ?? [];
     }
     this.isShowDrawer = true;
   }
@@ -77,12 +72,11 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
   onMouseLeave() {
     this.isShowDrawer = false;
     this.subMenuItems =
-      this.menuItems.find((item) => item.name === this.selectedMenu)?.submenu ??
-      [];
+      this.menuItems.find((item) => item.name === this.currentPath[0])
+        ?.submenu ?? [];
   }
 
   onClickMenu(menu: string) {
-    this.selectedMenu = menu;
     const checkSubMenuExist =
       this.menuItems.find((item) => item.name === menu)?.submenu?.length === 0
         ? false
@@ -149,7 +143,6 @@ export class PrivateLayoutComponent implements OnInit, OnDestroy {
       this.router.events.subscribe(() => {
         this.isNavOpen = false;
         this.currentPath = this.router.url.slice(1)?.split('/');
-        this.selectedMenu = this.currentPath[0];
         if (this.currentPath.length > 1) {
           this.isShowDrawer = true;
           this.isSubmenuExist = true;

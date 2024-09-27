@@ -8,16 +8,28 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ConfirmationDialogComponent {
   isLoading = false;
+  inputValue = '';
   // Declare okClicked as an EventEmitter
-  @Output() okClicked = new EventEmitter<void>();
+  @Output() okClicked = new EventEmitter<string | void>();
   @Output() cancelClicked = new EventEmitter<void>();
 
   constructor(
     public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { title: string; description: string }
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      title: string;
+      description: string;
+      cancelBtnText: string;
+      okBtnText: string;
+      showInputField?: boolean;
+    }
   ) {}
   onOkClick(): void {
-    this.okClicked.emit();
+    if (this.data.showInputField) {
+      this.okClicked.emit(this.inputValue);
+    } else {
+      this.okClicked.emit();
+    }
   }
 
   onCloseClick(): void {

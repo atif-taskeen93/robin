@@ -56,6 +56,8 @@ export class PublicLayoutComponent implements OnInit, OnDestroy {
         title: 'Unsaved changes',
         description:
           'You have changes to your form that have not been saved or submitted.',
+        cancelBtnText: 'Exit Without Saving',
+        okBtnText: 'Continue Editing',
       },
     });
 

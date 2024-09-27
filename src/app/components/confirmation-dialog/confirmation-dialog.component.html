@@ -7,8 +7,12 @@
     </p>
     <div *ngIf="this.data.showInputField" class="input-wrapper">
       <mat-form-field appearance="fill">
-        <mat-label>Enter your reason</mat-label>
-        <input matInput [(ngModel)]="inputValue" placeholder="Reason" />
+        <mat-label>{{ this.data.label }}</mat-label>
+        <input
+          matInput
+          [(ngModel)]="inputValue"
+          placeholder="{{ this.data.placeholder }}"
+        />
       </mat-form-field>
     </div>
   </mat-dialog-content>

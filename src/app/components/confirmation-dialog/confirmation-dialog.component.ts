@@ -22,6 +22,8 @@ export class ConfirmationDialogComponent {
       cancelBtnText: string;
       okBtnText: string;
       showInputField?: boolean;
+      label?: string;
+      placeholder?: string;
     }
   ) {}
   onOkClick(): void {

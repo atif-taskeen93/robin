@@ -1,0 +1,10 @@
+<mat-accordion class="task-accordion">
+  <mat-expansion-panel hideToggle="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title
+        ><mat-icon>arrow_right</mat-icon> {{ title }} ({{ count }})
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-content></ng-content>
+  </mat-expansion-panel>
+</mat-accordion>

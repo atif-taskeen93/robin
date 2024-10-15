@@ -66,4 +66,26 @@
   .light-grey-text {
     color: mat.get-theme-color($theme, on-surface-variant);
   }
+  .task-accordion {
+    mat-expansion-panel {
+      border-radius: 0px !important;
+      box-shadow: none;
+      background: mat.get-theme-color($theme, surface-container);
+      &.mat-expanded {
+        background-color: white;
+      }
+      mat-expansion-panel-header {
+        padding: 0px;
+        &.mat-expanded {
+          mat-icon {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+    .mat-expansion-panel-body {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
 }

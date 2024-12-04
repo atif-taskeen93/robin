@@ -1,0 +1,66 @@
+<div class="dialog-container">
+  <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+  <div class="dialog-title">
+    <h3 mat-dialog-title class="mat-headline-small">{{ data.title }}</h3>
+    <p class="mat-body-medium">
+      {{ data.description }}
+    </p>
+  </div>
+  <mat-dialog-content>
+    <div class="lable-section">
+      <ul>
+        <li
+          class="text-dark"
+          *ngFor="let item of data.filterOptions | keyvalue"
+          (keyDown)="handleSelectLabel(item.key)"
+        >
+          {{ item.value.filterLabel }} <mat-icon>arrow_right</mat-icon>
+        </li>
+      </ul>
+    </div>
+    <div class="options-section">
+      <div *ngIf="selectedLabel?.filterType === 'multi-select'">
+        <mat-checkbox
+          [(ngModel)]="checkAllSelected"
+          (change)="toggleCheckAll()"
+          [indeterminate]="isIndeterminate()"
+          class="divider"
+        >
+          Select All (default)
+        </mat-checkbox>
+        <!-- Individual Items -->
+        <div *ngFor="let item of selectedLabel.options">
+          <mat-checkbox [(ngModel)]="item.selected" (change)="itemChanged()">
+            {{ item.title }}
+          </mat-checkbox>
+        </div>
+      </div>
+      <div *ngIf="selectedLabel?.filterType === 'single-select'">
+        <mat-radio-group
+          aria-label="Select an option"
+          (change)="onSelectionChange($event)"
+          [(ngModel)]="selectedValue"
+        >
+          <div *ngFor="let item of selectedLabel.options">
+            <mat-radio-button [value]="item.id">{{
+              item.title
+            }}</mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onCloseClick()" [disabled]="isLoading">
+      {{ data.cancelBtnText }}
+    </button>
+    <button
+      mat-flat-button
+      (click)="onOkClick()"
+      [disabled]="isLoading"
+      cdkFocusInitial
+    >
+      {{ data.okBtnText }}
+    </button>
+  </mat-dialog-actions>
+</div>

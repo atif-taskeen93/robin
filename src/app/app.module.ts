@@ -19,7 +19,8 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { LoginComponent } from './auth/login/login.component';
 import { provideHttpClient } from '@angular/common/http';
+import { FilterModalComponent } from './components/filter-modal/filter-modal.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { provideHttpClient } from '@angular/common/http';
     SearchBarComponent,
     ConfirmationDialogComponent,
     LoginComponent,
+    FilterModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,8 @@ import { provideHttpClient } from '@angular/common/http';
     MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCheckboxModule,
+    MatRadioModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     FormsModule,

@@ -1,8 +1,6 @@
 <div>
-  <p>basic-information works!</p>
-  <a
-    [routerLink]="['/public/patient-identity']"
-    style="text-decoration: underline"
-    >Patient Identity</a
-  >
+  <button mat-flat-button class="custom-fab-btn" (click)="openDialog()">
+    <mat-icon>tune</mat-icon>
+    Filter
+  </button>
 </div>

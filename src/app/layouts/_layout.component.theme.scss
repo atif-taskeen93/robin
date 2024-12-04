@@ -88,4 +88,7 @@
       padding-right: 0px;
     }
   }
+  .text-dark {
+    color: mat.get-theme-color($theme, on-background);
+  }
 }

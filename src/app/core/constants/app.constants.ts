@@ -141,3 +141,85 @@ export const PATIENT_LIST_FORM = [
     isCompleted: false,
   },
 ];
+
+interface Option {
+  id: string;
+  title: string;
+  selected: boolean;
+}
+
+interface FilterConfigItem {
+  filterType: string;
+  filterLabel: string;
+  options?: Option[];
+  id: string;
+}
+
+export type FilterConfig = Record<string, FilterConfigItem>;
+
+export const FILTER_CONFIG: FilterConfig = {
+  label1: {
+    filterType: 'multi-select',
+    filterLabel: 'Label 1',
+    id: 'label1',
+    options: [
+      {
+        id: 'item-1',
+        title: 'Item One',
+        selected: true,
+      },
+      {
+        id: 'item-2',
+        title: 'Item Two',
+        selected: true,
+      },
+      {
+        id: 'item-3',
+        title: 'Item Three',
+        selected: true,
+      },
+      {
+        id: 'item-4',
+        title: 'Item Four',
+        selected: true,
+      },
+      {
+        id: 'item-5',
+        title: 'Item Five',
+        selected: true,
+      },
+    ],
+  },
+  label2: {
+    filterType: 'single-select',
+    filterLabel: 'Label 2',
+    id: 'label2',
+    options: [
+      {
+        id: 'item-1',
+        title: 'Item One',
+        selected: true,
+      },
+      {
+        id: 'item-2',
+        title: 'Item Two',
+        selected: true,
+      },
+      {
+        id: 'item-3',
+        title: 'Item Three',
+        selected: true,
+      },
+      {
+        id: 'item-4',
+        title: 'Item Four',
+        selected: true,
+      },
+      {
+        id: 'item-5',
+        title: 'Item Five',
+        selected: true,
+      },
+    ],
+  },
+};
